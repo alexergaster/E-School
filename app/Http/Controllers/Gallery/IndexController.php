@@ -7,7 +7,7 @@ use Illuminate\View\View;
 
 class IndexController extends BaseController
 {
-    public function index() : view
+    public function __invoke() : view
     {
         $galleries = Gallery::all();
 

@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\Gallery\IndexController as GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PriceController;
-use App\Http\Controllers\Program\IndexController;
-use App\Http\Controllers\Program\ShowController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,16 +18,25 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::group(['namespace' => 'App\Http\Controllers\Program'], function () {
+    Route::get('programs', IndexController::class)->name('programs.index');
+
+
+    Route::get('programs/{program}', ShowController::class)->name('programs.show');
+});
 Route::get('/staff', [StaffController::class, 'index'])->name('staff.index');
 Route::get('/price', [PriceController::class, 'index'])->name('price.index');
 Route::get('/about', function () {
     return view('about');
 })->name('about.index');
-Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+Route::group(['namespace' => 'App\Http\Controllers\Gallery'], function () {
+    Route::get('/gallery', IndexController::class)->name('gallery.index');
+});
 
-Route::group([], function () {
-    Route::get('programs', IndexController::class)->name('programs.index');
 
 
-    Route::get('programs/{program}', ShowController::class)->name('programs.show');
+Route::group(['namespace' => 'App\Http\Controllers\MK'], function () {
+    Route::get('/master_class', IndexController::class)->name('mc.index');
+    Route::get('/master_class/{id}', ShowController::class)->name('mc.show');
+    Route::post('/master_class', StoreController::class)->name('mc.store');
 });

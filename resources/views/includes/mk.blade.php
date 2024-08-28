@@ -17,10 +17,11 @@
             <div class="popup__close"></div>
             <div class="popup__title">Реєстрація на майстер клас!</div>
             <form action="/" method="POST" class="popup__form">
+                {{--                @csrf--}}
                 <div class="form__body">
                     <input
                         type="text"
-                        placeholder="Ваше ім'я та прізвище*"
+                        placeholder="Ваше ім'я*"
                         name="name_parent"
                         class="form__input"
                         required
@@ -34,7 +35,7 @@
                     />
                     <input
                         type="text"
-                        placeholder="Ім'я дитини та прізвище*"
+                        placeholder="Ім'я дитини*"
                         name="name_child"
                         class="form__input"
                         required
@@ -87,5 +88,34 @@
                 popup.classList.toggle("_open");
             });
         });
+    }
+
+    if (document.querySelector(".popup__mk")) {
+        // const data = {
+        //     parent_name: "test",
+        //     parent_phone: "dgfg",
+        //     child_name: "Child test",
+        //     child_age: 12
+        // }
+
+        // fetch('http://127.0.0.1:8000/master_class', {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: JSON.stringify(data),
+        // })
+        //     .then((response) => {
+        //         if (!response.ok) {
+        //             throw new Error("Network response was not ok");
+        //         }
+        //         return response.json();
+        //     })
+        //     .then((data) => {
+        //         console.log(data);
+        //     })
+        //     .catch((error) => {
+        //         console.error("Error:", error);
+        //     });
     }
 </script>
