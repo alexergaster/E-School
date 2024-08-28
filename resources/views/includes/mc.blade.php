@@ -2,18 +2,17 @@
     <div class="popup__field"></div>
     <div class="popup__body">
         <div class="popup__content">
-            {{--TODO: add preloader--}}
-            {{--            <div class="loading _hidden">--}}
-            {{--                <div class="loadingio-spinner-reload-2by998twmg8">--}}
-            {{--                    <div class="ldio-yzaezf3dcmj">--}}
-            {{--                        <div>--}}
-            {{--                            <div></div>--}}
-            {{--                            <div></div>--}}
-            {{--                            <div></div>--}}
-            {{--                        </div>--}}
-            {{--                    </div>--}}
-            {{--                </div>--}}
-            {{--            </div>--}}
+            <div class="loading _hidden">
+                <div class="loadingio-spinner-reload-2by998twmg8">
+                    <div class="ldio-yzaezf3dcmj">
+                        <div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="popup__close"></div>
             <div class="popup__title">Реєстрація на майстер клас!</div>
 
@@ -94,13 +93,16 @@
         form.addEventListener("submit", (e) => {
             e.preventDefault();
 
+            const preloader = document.querySelector(".loading");
+            preloader.classList.remove("_hidden");
+
             const data = {
                 parent_name: document.getElementsByName('name_parent')[0].value,
                 parent_phone: document.getElementsByName('phone_parent')[0].value,
                 child_name: document.getElementsByName('name_child')[0].value,
                 child_age: document.getElementsByName('age_child')[0].value,
                 programs: Array.from(document.querySelectorAll('input[name="courses[]"]:checked'))
-                        .map(checkbox => checkbox.value),
+                    .map(checkbox => checkbox.value),
             }
 
             fetch('http://127.0.0.1:8000/api/master_class', {
@@ -119,12 +121,14 @@
                     return response.json();
                 })
                 .then((response) => {
+                    preloader.classList.add("_hidden");
                     if (response.data) {
                         formMessage.classList.add('_active');
                         formMessage.textContent = 'Ви успішно записались!'
                     }
                 })
                 .catch((error) => {
+                    preloader.classList.add("_hidden");
                     if (error.errors) {
                         formMessage.classList.add('_active');
                         formMessage.innerHTML = Object.values(error.errors)[0];

@@ -31,7 +31,7 @@
                         required
                         placeholder="Ваше питання*"
                     ></textarea>
-                    <div class="form__error"></div>
+                    <div class="form__message"></div>
                     <button class="footer__button button">Відправити</button>
                 </form>
                 <div class="footer__contacts">
