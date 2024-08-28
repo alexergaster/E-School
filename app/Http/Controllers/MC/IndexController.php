@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\MK;
+namespace App\Http\Controllers\MC;
 
-use App\Models\RegistrationMK;
+use App\Models\RegistrationMC;
 
 class IndexController extends BaseController
 {
     public function __invoke()
     {
-        $MKs = RegistrationMK::all();
+        $MKs = RegistrationMC::all();
         dd($MKs);
     }
 }

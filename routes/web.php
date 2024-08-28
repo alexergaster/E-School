@@ -34,9 +34,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Gallery'], function () {
 });
 
 
-
-Route::group(['namespace' => 'App\Http\Controllers\MK'], function () {
+Route::group(['namespace' => 'App\Http\Controllers\MC'], function () {
     Route::get('/master_class', IndexController::class)->name('mc.index');
     Route::get('/master_class/{id}', ShowController::class)->name('mc.show');
-    Route::post('/master_class', StoreController::class)->name('mc.store');
 });

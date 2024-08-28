@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('registration_m_k_s', function (Blueprint $table) {
             $table->id();
             $table->string('parent_name', 70);
-            $table->string('parent_phone', 15);
+            $table->string('parent_phone', 20);
             $table->string('child_name', 70);
             $table->integer('child_age');
             $table->text('comment')->nullable();

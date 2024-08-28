@@ -1,4 +1,4 @@
-<div class="popup popup__mk">
+<div class="popup ">
     <div class="popup__field"></div>
     <div class="popup__body">
         <div class="popup__content">
@@ -16,8 +16,7 @@
             {{--            </div>--}}
             <div class="popup__close"></div>
             <div class="popup__title">Реєстрація на майстер клас!</div>
-            <form action="/" method="POST" class="popup__form">
-                {{--                @csrf--}}
+            <form action="" method="POST" class="popup__form form__mk">
                 <div class="form__body">
                     <input
                         type="text"
@@ -90,32 +89,43 @@
         });
     }
 
-    if (document.querySelector(".popup__mk")) {
-        // const data = {
-        //     parent_name: "test",
-        //     parent_phone: "dgfg",
-        //     child_name: "Child test",
-        //     child_age: 12
-        // }
+    if (document.querySelector(".form__mk")) {
+        const form = document.querySelector(".form__mk");
 
-        // fetch('http://127.0.0.1:8000/master_class', {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify(data),
-        // })
-        //     .then((response) => {
-        //         if (!response.ok) {
-        //             throw new Error("Network response was not ok");
-        //         }
-        //         return response.json();
-        //     })
-        //     .then((data) => {
-        //         console.log(data);
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error:", error);
-        //     });
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const data = {
+                parent_name: document.getElementsByName('name_parent')[0].value,
+                parent_phone: document.getElementsByName('phone_parent')[0].value,
+                child_name: document.getElementsByName('phone_parent')[0].value,
+                child_age: document.getElementsByName('age_child')[0].value
+            }
+
+            fetch('http://127.0.0.1:8000/api/master_class', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+
+        })
+
+
+
+
     }
 </script>
