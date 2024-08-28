@@ -16,6 +16,7 @@
             {{--            </div>--}}
             <div class="popup__close"></div>
             <div class="popup__title">Реєстрація на майстер клас!</div>
+
             <form action="" method="POST" class="popup__form form__mk">
                 <div class="form__body">
                     <input
@@ -56,7 +57,7 @@
                         </label>
                     @endforeach
 
-                    <div class="form__error"></div>
+                    <div class="form__message"></div>
                 </div>
 
                 <button class="button">Записатись</button>
@@ -69,7 +70,6 @@
     if (document.querySelector(".popup")) {
         const popup = document.querySelector(".popup");
         const openButtons = document.querySelectorAll(".master_class");
-        const formError = document.querySelector(".popup__form .form__error");
 
         const popupCloses = [
             document.querySelector(".popup__field"),
@@ -81,8 +81,6 @@
         buttonsPopup.forEach((button) => {
             button.addEventListener("click", (e) => {
                 e.preventDefault();
-                formError.classList.remove("active");
-                formError.textContent = "";
                 document.body.classList.toggle("menu__active");
                 popup.classList.toggle("_open");
             });
@@ -91,6 +89,7 @@
 
     if (document.querySelector(".form__mk")) {
         const form = document.querySelector(".form__mk");
+        const formMessage = document.querySelector('.form__message')
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -98,8 +97,10 @@
             const data = {
                 parent_name: document.getElementsByName('name_parent')[0].value,
                 parent_phone: document.getElementsByName('phone_parent')[0].value,
-                child_name: document.getElementsByName('phone_parent')[0].value,
-                child_age: document.getElementsByName('age_child')[0].value
+                child_name: document.getElementsByName('name_child')[0].value,
+                child_age: document.getElementsByName('age_child')[0].value,
+                programs: Array.from(document.querySelectorAll('input[name="courses[]"]:checked'))
+                        .map(checkbox => checkbox.value),
             }
 
             fetch('http://127.0.0.1:8000/api/master_class', {
@@ -111,21 +112,26 @@
             })
                 .then((response) => {
                     if (!response.ok) {
-                        throw new Error("Network response was not ok");
+                        return response.json().then((errorData) => {
+                            throw errorData;
+                        });
                     }
                     return response.json();
                 })
-                .then((data) => {
-                    console.log(data);
+                .then((response) => {
+                    if (response.data) {
+                        formMessage.classList.add('_active');
+                        formMessage.textContent = 'Ви успішно записались!'
+                    }
                 })
                 .catch((error) => {
-                    console.error("Error:", error);
+                    if (error.errors) {
+                        formMessage.classList.add('_active');
+                        formMessage.innerHTML = Object.values(error.errors)[0];
+                    } else {
+                        console.error("Error:", error);
+                    }
                 });
-
         })
-
-
-
-
     }
 </script>

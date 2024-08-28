@@ -1003,7 +1003,7 @@ header {
         width: 100%;
     }
 }
-.form__error {
+.form__message {
     width: 100%;
     text-align: center;
     border-radius: 10px;
@@ -1014,7 +1014,7 @@ header {
     hyphens: auto;
     transition: 0.5s all;
 }
-.form__error.active {
+.form__message._active {
     padding: 10px 15px;
     border: 2px solid #fff;
     margin-top: 15px;

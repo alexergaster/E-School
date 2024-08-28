@@ -4,6 +4,7 @@ namespace App\Http\Controllers\MC;
 
 use App\Http\Requests\MC\StoreRequest;
 use App\Http\Resources\MC\MCResource;
+use App\Models\Program;
 use App\Models\RegistrationMC;
 
 class StoreController extends BaseController

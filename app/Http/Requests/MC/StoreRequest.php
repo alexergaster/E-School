@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'child_name' => 'required|string|max:70',
             'child_age' => 'required|integer',
             'comment' => 'string|nullable',
+            'programs' => 'required|array',
         ];
     }
 
