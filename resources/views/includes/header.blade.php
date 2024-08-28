@@ -21,13 +21,19 @@
             </li>
             <li class="nav__item">
                 <a href="{{ route('about.index') }}"
-                   class="hover-underline-animation {{ request()->routeIs('about.index') ? 'active__page': '' }}">Про нас</a>
+                   class="hover-underline-animation {{ request()->routeIs('about.index') ? 'active__page': '' }}">Про
+                    нас</a>
             </li>
             <li class="nav__item">
-                <a href="{{ route('gallery.index') }}" class="hover-underline-animation {{ request()->routeIs('gallery.index') ? 'active__page': '' }}">Галерея</a>
+                <a href="{{ route('gallery.index') }}"
+                   class="hover-underline-animation {{ request()->routeIs('gallery.index') ? 'active__page': '' }}">Галерея</a>
             </li>
         </div>
         <div class="header__cabinet">
+            <a href="/" class="header__button button">
+                <span>Увійти</span>
+                <img src="{{ asset('images/misc/arrow_right.svg') }}" alt=""/>
+            </a>
             {{--        <?php--}}
             {{--        if(isset($_SESSION["teacher_auth_id"])){--}}
             {{--            ?>--}}
@@ -63,3 +69,44 @@
         </div>
     </div>
 </div>
+
+@include('includes.auth')
+
+<script>
+    if (document.querySelector(".button__menu")) {
+        const buttonMenu = document.querySelector(".button__menu");
+
+        buttonMenu.addEventListener("click", () => {
+            openOrCloseMenu(buttonMenu);
+        });
+
+        function openOrCloseMenu(buttonMenu) {
+            const menu = document.querySelector(".header__nav");
+            menu.classList.toggle("active");
+            buttonMenu.classList.toggle("button__menu-active");
+            document.body.classList.toggle("menu__active");
+        }
+    }
+
+    if (
+        document.querySelector(".popup__auth") &&
+        document.querySelector(".header__button")
+    ) {
+        const popup = document.querySelector(".popup__auth");
+        const openButtonAuth = document.querySelector(".header__button");
+        const popupAuthCloses = [
+            document.querySelector(".auth__field"),
+            document.querySelector(".auth__close"),
+        ];
+
+        const buttonsPopupAuth = [openButtonAuth, ...popupAuthCloses];
+
+        buttonsPopupAuth.forEach((button) => {
+            button.addEventListener("click", (e) => {
+                e.preventDefault();
+                document.body.classList.toggle("menu__active");
+                popup.classList.toggle("_open");
+            });
+        });
+    }
+</script>

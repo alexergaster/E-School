@@ -15,15 +15,16 @@
                     Знайдіть відповідного викладача серед понад 20 викладачів
                 </div>
                 <div class="welcome__buttons">
-                    <a href="#" class="button bouncy master_class"
-                    >На майстер-клас</a
-                    >
+                    <a href="/" class="button bouncy master_class">
+                        На майстер-клас
+                    </a>
                     <a
                         href="{{ route('about.index') }}"
                         class="button button-nude bouncy"
                         style="animation-delay: 0.12s"
-                    >Більше про школу</a
                     >
+                        Більше про школу
+                    </a>
                 </div>
             </div>
         </div>
@@ -144,7 +145,7 @@
                     <a href="{{ route('programs.index') }}" class="button bouncy">Переглянути усі курси</a>
                 </div>
             @else
-                <h1>На жаль курсів коки що немає(</h1>
+                <h1>На жаль курсів поки що немає(</h1>
             @endif
 
         </div>
@@ -170,11 +171,12 @@
                     </div>
                     <div class="performance__button">
                         <a
-                            href="#"
+                            href="/"
                             class="button bouncy master_class"
                             style="animation-delay: 0.5s"
-                        >Зраєстуватись на майстер клас</a
                         >
+                            Зраєстуватись на майстер клас
+                        </a>
                     </div>
                 </div>
             </div>

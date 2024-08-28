@@ -1,5 +1,5 @@
 <div class="popup ">
-    <div class="popup__field"></div>
+    <div class="popup__field mc__field"></div>
     <div class="popup__body">
         <div class="popup__content">
             <div class="loading _hidden">
@@ -13,7 +13,7 @@
                     </div>
                 </div>
             </div>
-            <div class="popup__close"></div>
+            <div class="popup__close mc__close"></div>
             <div class="popup__title">Реєстрація на майстер клас!</div>
 
             <form action="" method="POST" class="popup__form form__mk">
@@ -71,8 +71,8 @@
         const openButtons = document.querySelectorAll(".master_class");
 
         const popupCloses = [
-            document.querySelector(".popup__field"),
-            document.querySelector(".popup__close"),
+            document.querySelector(".mc__field"),
+            document.querySelector(".mc__close"),
         ];
 
         const buttonsPopup = [...openButtons, ...popupCloses];

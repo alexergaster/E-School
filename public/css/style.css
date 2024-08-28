@@ -230,6 +230,7 @@ header {
 .header__cabinet {
     display: flex;
     align-items: center;
+    gap: 10px
 }
 .header__cabinet a {
     font-weight: 600;
@@ -330,15 +331,15 @@ header {
         display: block;
         z-index: 6;
     }
-    .button__menu.button__menu-actie span {
+    .button__menu.button__menu-active span {
         display: none;
     }
-    .button__menu.button__menu-actie::after {
+    .button__menu.button__menu-active::after {
         top: 50%;
         transform: rotate(45deg) translate(0px, -50%);
         background-color: #fff;
     }
-    .button__menu.button__menu-actie::before {
+    .button__menu.button__menu-active::before {
         top: 50%;
         transform: rotate(-45deg) translate(0px, -50%);
         background-color: #fff;
