@@ -88,7 +88,7 @@
 
     if (document.querySelector(".form__mk")) {
         const form = document.querySelector(".form__mk");
-        const formMessage = document.querySelector('.form__message')
+        const formMessage = document.querySelector('.form__mk .form__message')
 
         form.addEventListener("submit", (e) => {
             e.preventDefault();

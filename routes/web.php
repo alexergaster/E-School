@@ -5,6 +5,8 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin'], function () {
+    Route::group(['namespace' => 'Program'], function () {
+        Route::get('/programs', IndexController::class)->name('admin.programs.index');
+    });
+});
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::group(['namespace' => 'App\Http\Controllers\Program'], function () {

@@ -18,3 +18,8 @@ yarn-error.log
 /.idea
 /.vscode
 /public/images/misc/video.mp4
+
+public/plugins/
+/public/dist/css/
+/public/dist/js/
+/public/dist/img/
