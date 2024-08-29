@@ -4,34 +4,52 @@ namespace App\Services\Staff;
 
 use App\Models\Staff;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
+
 
 class Service
 {
-    public function store($data): void
+    public function store($data, $request): void
     {
-        $data = [...$data, 'image' => '23.png'];
+        $file = $request->file('image');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $file->move(public_path('images/staff'), $filename);
+        $data['image'] = $filename;
+
         $data['password'] = Hash::make($data['password']);
 
         Staff::create($data);
     }
 
-    public function update($staff, $data): void
+    public function update($staff, $data, $request): void
     {
-//        if ($request->hasFile('image')) {
-//            // Видалення старого зображення, якщо воно не є значенням за замовчуванням
-//            if ($staff->image !== 'def    ault.avif') {
-//                Storage::disk('public')->delete($staff->image);
-//            }
-//            $data['image'] = $request->file('image')->store('staff_images', 'public');
-//        }
+        if ($request->hasFile('image')) {
+            if ($staff->image !== 'default.avif') {
+                File::delete(public_path('images/staff/' . $staff->image));
+            }
+
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images/staff'), $filename);
+            $data['image'] = $filename;
+        }
 
         if (isset($data['password'])) {
-//            dd(Hash::make($data['password']));
             $data['password'] = Hash::make($data['password']);
         } else {
             unset($data['password']);
         }
 
         $staff->update($data);
+    }
+
+    public function destroy($id)
+    {
+        $staff = Staff::find($id);
+
+        if ($staff->image !== 'default.avif') {
+            File::delete(public_path('images/staff/' . $staff->image));
+        }
+
     }
 }

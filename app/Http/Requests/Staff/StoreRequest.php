@@ -29,8 +29,7 @@ class StoreRequest extends FormRequest
                 'qualification' => 'nullable|string',
                 'login' => 'required|string|max:50',
                 'password' => 'required|string|max:255',
-//                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-//            TODO: fix bug from fileinfo
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
             ];
         }
     protected function failedValidation(Validator $validator)

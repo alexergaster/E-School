@@ -25,7 +25,7 @@
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Experience (years)</th>
-                                <th>Qualification</th>
+                                <th style="max-width: 400px;">Qualification</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -36,7 +36,7 @@
                                     <td>{{ $teacher->firstname }}</td>
                                     <td>{{ $teacher->lastname }}</td>
                                     <td>{{ $teacher->experience }}</td>
-                                    <td>{{ $teacher->qualification }}</td>
+                                    <td style="max-width: 400px;">{{ $teacher->qualification }}</td>
                                     <td>
                                         <a href="{{ route('admin.staff.edit', $teacher->id) }}"
                                            class="btn btn-warning btn-sm">Edit</a>

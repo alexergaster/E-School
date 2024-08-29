@@ -14,13 +14,13 @@
                             <div class="form-group">
                                 <label for="firstname">First Name</label>
                                 <input type="text" class="form-control" id="firstname" name="firstname" maxlength="50"
-                                       required value="tes1t">
+                                       required>
                             </div>
 
                             <div class="form-group">
                                 <label for="lastname">Last Name</label>
                                 <input type="text" class="form-control" id="lastname" name="lastname" maxlength="50"
-                                       required value="testings">
+                                       required>
                             </div>
 
                             <div class="form-group">
@@ -31,12 +31,12 @@
 
                             <div class="form-group">
                                 <label for="login">Login</label>
-                                <input type="text" class="form-control" id="login" name="login" maxlength="50" required value="test">
+                                <input type="text" class="form-control" id="login" name="login" maxlength="50" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required value="test1234">
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
 
                             <div class="form-group">

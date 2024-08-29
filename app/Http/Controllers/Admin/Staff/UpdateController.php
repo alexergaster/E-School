@@ -11,9 +11,9 @@ class UpdateController extends BaseController
     public function __invoke($id, UpdateRequest $updateRequest): RedirectResponse
     {
         $data = $updateRequest->validated();
-        $staff = Staff::find($id);
+        $staff = Staff::findOrFail($id);
 
-        $this->service->update($staff, $data);
+        $this->service->update($staff, $data, $updateRequest);
 
         return redirect()->route('admin.staff.index')->with('status', 'Teacher updated successfully!');
     }

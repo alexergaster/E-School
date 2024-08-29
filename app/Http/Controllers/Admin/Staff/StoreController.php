@@ -11,7 +11,7 @@ class StoreController extends BaseController
     {
         $data = $storeRequest->validated();
 
-        $this->service->store($data);
+        $this->service->store($data, $storeRequest);
 
         return redirect()->route('admin.staff.index')->with('status', 'Teacher created successfully!' );
     }
