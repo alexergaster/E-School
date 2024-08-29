@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('firstname', 50);
             $table->string('lastname', 50);
-            $table->string('patronymic', 50)->nullable()->default(null);
             $table->string('image', 100)->default('default.avif');
             $table->integer('experience')->default(1);
             $table->string('qualification', 255)->nullable()->default(null);

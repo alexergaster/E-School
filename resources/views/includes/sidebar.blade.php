@@ -24,12 +24,12 @@
                         <p>Програми</p>
                     </a>
                 </li>
-{{--                <li class="nav-item {{ request()->routeIs('admin.staff.index') ? 'menu-open': '' }}">--}}
-{{--                    <a href="{{ route('admin.staff.index') }}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-users"></i>--}}
-{{--                        <p>Вчителі</p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+                <li class="nav-item {{ request()->routeIs('admin.staff.index') ? 'menu-open': '' }}">
+                    <a href="{{ route('admin.staff.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Вчителі</p>
+                    </a>
+                </li>
 
             </ul>
         </nav>

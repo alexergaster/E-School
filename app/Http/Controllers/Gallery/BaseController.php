@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Gallery;
 
 use App\Http\Controllers\Controller;
-use App\Http\Services\Gallery\Service;
+use App\Services\Gallery\Service;
 
 class BaseController extends Controller
 {

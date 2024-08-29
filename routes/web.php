@@ -21,6 +21,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin']
     Route::group(['namespace' => 'Program'], function () {
         Route::get('/programs', IndexController::class)->name('admin.programs.index');
     });
+    Route::group(['namespace' => 'Staff'], function () {
+        Route::get('/staff', IndexController::class)->name('admin.staff.index');
+        Route::get('/staff/create', CreateController::class)->name('admin.staff.create');
+        Route::post('/staff', StoreController::class)->name('admin.staff.store');
+        Route::get('/staff/{id}/edit', EditController::class)->name('admin.staff.edit');
+        Route::patch('/staff/{id}', UpdateController::class)->name('admin.staff.update');
+        Route::delete('/staff/{id}', DestroyController::class)->name('admin.staff.destroy');
+    });
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');

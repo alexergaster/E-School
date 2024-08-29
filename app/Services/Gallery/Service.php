@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Services\Gallery;
+namespace App\Services\Gallery;
 
 use Illuminate\Support\Collection;
 
