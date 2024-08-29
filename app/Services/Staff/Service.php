@@ -45,7 +45,7 @@ class Service
 
     public function destroy($id)
     {
-        $staff = Staff::find($id);
+        $staff = Staff::findOrFail($id);
 
         if ($staff->image !== 'default.avif') {
             File::delete(public_path('images/staff/' . $staff->image));
