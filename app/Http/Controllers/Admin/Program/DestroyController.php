@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Staff;
+namespace App\Http\Controllers\Admin\Program;
 
-use App\Models\Staff;
+use App\Http\Requests\Program\StoreRequest;
 use Illuminate\Http\RedirectResponse;
 
 class DestroyController extends BaseController
@@ -11,6 +11,6 @@ class DestroyController extends BaseController
     {
         $this->service->destroy($id);
 
-        return redirect()->route('admin.staff.index')->with('status', 'Teacher deleted successfully!' );
+        return redirect()->route('admin.programs.index')->with('status', 'Program deleted successfully!');
     }
 }

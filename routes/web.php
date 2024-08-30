@@ -19,9 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin'], function () {
     Route::group(['namespace' => 'Program'], function () {
         Route::get('/programs', IndexController::class)->name('admin.programs.index');
-
-
-
+        Route::get('/programs/create', CreateController::class)->name('admin.programs.create');
+        Route::post('/programs', StoreController::class)->name('admin.programs.store');
+        Route::get('/programs/{id}/edit', EditController::class)->name('admin.programs.edit');
+        Route::patch('/programs/{id}', UpdateController::class)->name('admin.programs.update');
+        Route::delete('/programs/{id}', DestroyController::class)->name('admin.programs.destroy');
 
         Route::group(['namespace' => 'Section'], function () {
             Route::get('/programs/{id}/sections', IndexController::class)->name('admin.sections.index');
@@ -32,8 +34,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin']
             Route::delete('/programs/{program}/sections/{section}', DestroyController::class)->name('admin.sections.destroy');
         });
     });
-
-
     Route::group(['namespace' => 'Staff'], function () {
         Route::get('/staff', IndexController::class)->name('admin.staff.index');
         Route::get('/staff/create', CreateController::class)->name('admin.staff.create');

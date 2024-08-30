@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-header">
                         Programs List
-                        {{--                        <a href="{{ route('admin.staff.create') }}" class="btn btn-success btn-sm float-right">Create--}}
-                        {{--                            New Program</a>--}}
+                        <a href="{{ route('admin.programs.create') }}" class="btn btn-success btn-sm float-right">Create
+                            New Program</a>
                     </div>
 
                     <div class="card-body">
@@ -45,18 +45,28 @@
                                     <td>{{ $program->price }}</td>
                                     <td>{{ $program->recommended_age }}</td>
                                     <td>
-                                        <a href="{{ route('admin.sections.index', $program->id) }}"
-                                           class="btn btn-primary btn-sm">View</a>
-                                        {{--  <a href="{{ route('admin.staff.edit', $teacher->id) }}"
-                                         class="btn btn-warning btn-sm">Edit</a>
-                                      <form action="{{ route('admin.staff.destroy', $teacher->id) }}" method="POST"
-                                            style="display:inline;">
-                                          @csrf
-                                          @method('DELETE')
-                                          <button type="submit" class="btn btn-danger btn-sm"
-                                                  onclick="return confirm('Are you sure?')">Delete
-                                          </button>
-                                      </form>--}}
+                                        <div class="mb-2">
+                                            <a href="{{ route('admin.sections.index', $program->id) }}"
+                                               class="btn btn-primary btn-sm w-100">View</a>
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <a href="{{ route('admin.programs.edit', $program->id) }}"
+                                               class="btn btn-warning btn-sm w-100">Edit</a>
+                                        </div>
+                                        <div>
+                                            <form action="{{ route('admin.programs.destroy', $program->id) }}" method="POST"
+                                                  style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm w-100"
+                                                        onclick="return confirm('Are you sure?')">Delete
+                                                </button>
+                                            </form>
+                                        </div>
+
+
+
                                     </td>
                                 </tr>
                             @endforeach
