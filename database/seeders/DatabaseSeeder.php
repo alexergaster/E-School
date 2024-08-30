@@ -5,8 +5,11 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Gallery;
 use App\Models\Program;
+use App\Models\RegistrationMC;
 use App\Models\Sections;
 use App\Models\Staff;
+use Database\Factories\RegistrationMCFactory;
+use Database\Factories\RegistrationMCFactory1;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

@@ -18,13 +18,12 @@ class RegistrationMC extends Model
     {
         return $this->belongsToMany(Program::class);
     }
-
     protected static function boot()
     {
         parent::boot();
 
         static::deleting(function ($mc) {
-            $mc->program()->delete();
+            $mc->program()->detach();
         });
     }
 }

@@ -44,6 +44,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin']
     });
     Route::group(['namespace' => 'MC'], function () {
         Route::get('/mc', IndexController::class)->name('admin.mc.index');
+        Route::patch('/mc/{id}', UpdateController::class)->name('admin.mc.update');
         Route::delete('/mc/{id}', DestroyController::class)->name('admin.mc.destroy');
     });
 });

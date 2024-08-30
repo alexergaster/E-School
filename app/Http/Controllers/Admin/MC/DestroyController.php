@@ -13,6 +13,6 @@ class DestroyController extends BaseController
 
         $mc->delete();
 
-        return redirect()->route('admin.mc.index')->with('success', 'Користувача та його програми видалено.');
+        return redirect()->route('admin.mc.index')->with('status', 'Користувача та його програми видалено.');
     }
 }

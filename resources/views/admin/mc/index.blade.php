@@ -36,18 +36,23 @@
                                     <td>{{ $mc->parent_phone }}</td>
                                     <td>{{ $mc->child_name }}</td>
                                     <td>{{ $mc->child_age }}</td>
-                                    <td>{{ $mc->comment }}</td>
+                                    <td>
+                                        <form class="form__comment" action="{{ route('admin.mc.update', $mc->id) }}"
+                                              method="POST">
+                                            @csrf
+                                            @method('PATCH')
+
+                                            <textarea class="form-control" name="comment"
+                                                      rows="3"
+                                                      onkeydown="if (event.key === 'Enter' && !event.shiftKey) { this.form.submit(); event.preventDefault(); }">{{ $mc->comment }}</textarea>
+                                        </form>
+                                    </td>
                                     <td>
                                         @foreach($mc->program as $program)
                                             <p>{{ $program->tag }} </p>
                                         @endforeach
                                     </td>
                                     <td>
-                                        {{--                                    <div class="mb-2">--}}
-                                        {{--                                            <a href="{{ route('admin.programs.edit', $program->id) }}"--}}
-                                        {{--                                               class="btn btn-warning btn-sm w-100">Edit</a>--}}
-                                        {{--                                        </div>--}}
-                                        {{--                                        <div>--}}
                                         <form action="{{ route('admin.mc.destroy', $mc->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -55,16 +60,16 @@
                                                     onclick="return confirm('Are you sure?')">Delete
                                             </button>
                                         </form>
-                    </div>
-                    </td>
-                    </tr>
-                    @endforeach
-                    </tbody>
-                    </table>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                            <div class="mt-2">{{ $mcs->links('pagination::bootstrap-5') }}</div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection
