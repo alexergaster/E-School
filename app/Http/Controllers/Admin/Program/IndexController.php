@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Program;
 
-use App\Http\Controllers\Controller;
 use App\Models\Program;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class IndexController extends BaseController

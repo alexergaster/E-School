@@ -13,6 +13,6 @@ class StoreController extends BaseController
 
         $this->service->store($data, $storeRequest);
 
-        return redirect()->route('admin.staff.index')->with('status', 'Teacher created successfully!' );
+        return redirect()->route('admin.staff.index')->with('status', 'Teacher created successfully!');
     }
 }

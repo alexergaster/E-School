@@ -1,14 +1,17 @@
 @extends('layouts.admin')
 
-@section("content")
+@section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Teachers List
-                        <a href="{{ route('admin.staff.create') }}" class="btn btn-success btn-sm float-right">Create
-                            New Teacher</a>
+                        <p>Program Details</p>
+
+                        <a href="{{ route('admin.programs.index') }}" class="btn btn-secondary btn-sm float-laft">Back
+                            to Programs List</a>
+                        <a href="{{ route('admin.sections.create', $program) }}"
+                           class="btn btn-success btn-sm float-right mr-3">Create New Section</a>
                     </div>
 
                     <div class="card-body">
@@ -18,29 +21,27 @@
                             </div>
                         @endif
 
+                        <h1 class="text-center mb-5">{{ $program->name }} </h1>
+
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Experience (years)</th>
-                                <th style="max-width: 400px;">Qualification</th>
+                                <th>Type</th>
+                                <th>Content</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($teachers as $teacher)
+                            @foreach($sections as $section)
                                 <tr>
-                                    <td>{{ $teacher->id }}</td>
-                                    <td>{{ $teacher->firstname }}</td>
-                                    <td>{{ $teacher->lastname }}</td>
-                                    <td>{{ $teacher->experience }}</td>
-                                    <td style="max-width: 400px;">{{ $teacher->qualification }}</td>
-                                    <td>
-                                        <a href="{{ route('admin.staff.edit', $teacher->id) }}"
+                                    <td>{{ $section->id }}</td>
+                                    <td>{{ $section->name }}</td>
+                                    <td>{{ $section->content }}</td>
+                                    <td style="width: 150px">
+                                        <a href="{{ route('admin.sections.edit', ['program' => $program->id,'section' => $section->id]) }}"
                                            class="btn btn-warning btn-sm">Edit</a>
-                                        <form action="{{ route('admin.staff.destroy', $teacher->id) }}" method="POST"
+                                        <form action="{{ route('admin.sections.destroy', ['program' => $program->id,'section' => $section->id]) }}" method="POST"
                                               style="display:inline;">
                                             @csrf
                                             @method('DELETE')
@@ -53,8 +54,6 @@
                             @endforeach
                             </tbody>
                         </table>
-
-                        {{--                        {{ $teachers->links() }}--}}
                     </div>
                 </div>
             </div>

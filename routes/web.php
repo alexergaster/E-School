@@ -6,7 +6,6 @@ use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +19,21 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin'], function () {
     Route::group(['namespace' => 'Program'], function () {
         Route::get('/programs', IndexController::class)->name('admin.programs.index');
+
+
+
+
+        Route::group(['namespace' => 'Section'], function () {
+            Route::get('/programs/{id}/sections', IndexController::class)->name('admin.sections.index');
+            Route::get('/programs/{program}/sections/{section}/edit', EditController::class)->name('admin.sections.edit');
+            Route::get('/programs/{program}/sections/create', CreateController::class)->name('admin.sections.create');
+            Route::post('/programs/{program}/sections', StoreController::class)->name('admin.sections.store');
+            Route::patch('/programs/{program}/sections/{section}', UpdateController::class)->name('admin.sections.update');
+            Route::delete('/programs/{program}/sections/{section}', DestroyController::class)->name('admin.sections.destroy');
+        });
     });
+
+
     Route::group(['namespace' => 'Staff'], function () {
         Route::get('/staff', IndexController::class)->name('admin.staff.index');
         Route::get('/staff/create', CreateController::class)->name('admin.staff.create');
@@ -46,7 +59,6 @@ Route::get('/about', function () {
 Route::group(['namespace' => 'App\Http\Controllers\Gallery'], function () {
     Route::get('/gallery', IndexController::class)->name('gallery.index');
 });
-
 
 Route::group(['namespace' => 'App\Http\Controllers\MC'], function () {
     Route::get('/master_class', IndexController::class)->name('mc.index');

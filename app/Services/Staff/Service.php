@@ -50,6 +50,5 @@ class Service
         if ($staff->image !== 'default.avif') {
             File::delete(public_path('images/staff/' . $staff->image));
         }
-
     }
 }
