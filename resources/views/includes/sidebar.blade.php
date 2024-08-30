@@ -29,6 +29,11 @@
                         <i class="nav-icon fas fa-users"></i>
                         <p>Вчителі</p>
                     </a>
+                </li><li class="nav-item {{ request()->routeIs('admin.mc.index') ? 'menu-open': '' }}">
+                    <a href="{{ route('admin.mc.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>Майстер класи</p>
+                    </a>
                 </li>
 
             </ul>

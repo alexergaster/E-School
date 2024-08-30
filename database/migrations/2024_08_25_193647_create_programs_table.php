@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('tag', 50);
             $table->text('description');
             $table->double('price');
-            $table->integer('recommended_age')->nullable()->default(9);
+            $table->integer('recommended_age')->default(9);
             $table->integer('number_lesson')->default(32);
         });
     }

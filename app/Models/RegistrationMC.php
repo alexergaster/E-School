@@ -14,8 +14,17 @@ class RegistrationMC extends Model
     protected $guarded = false;
     public $timestamps = false;
 
-    public function program() : belongsToMany
+    public function program(): belongsToMany
     {
         return $this->belongsToMany(Program::class);
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($mc) {
+            $mc->program()->delete();
+        });
     }
 }
