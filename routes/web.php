@@ -57,6 +57,9 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin']
         Route::patch('/parents/{id}', UpdateController::class)->name('admin.parents.update');
         Route::delete('/parents/{id}', DestroyController::class)->name('admin.parents.destroy');
     });
+    Route::group(['namespace' => 'Student'], function () {
+        Route::get('/students', IndexController::class)->name('admin.students.index');
+    });
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');

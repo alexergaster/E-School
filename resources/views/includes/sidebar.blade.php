@@ -42,6 +42,12 @@
                         <p>Батьки</p>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->routeIs('admin.students.index') ? 'menu-open': '' }}">
+                    <a href="{{ route('admin.students.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-child"></i>
+                        <p>Учні</p>
+                    </a>
+                </li>
 
             </ul>
         </nav>

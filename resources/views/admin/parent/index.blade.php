@@ -68,7 +68,9 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <div class="mt-2">{{ $parents->links('pagination::bootstrap-5') }}</div>
+                            @if($parents->links)
+                                <div class="mt-2">{{ $parents->links('pagination::bootstrap-5') }}</div>
+                            @endif
                     </div>
                 </div>
             </div>
