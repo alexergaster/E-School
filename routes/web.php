@@ -59,6 +59,11 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin']
     });
     Route::group(['namespace' => 'Student'], function () {
         Route::get('/students', IndexController::class)->name('admin.students.index');
+        Route::get('/students/{id}/edit', EditController::class)->name('admin.students.edit');
+        Route::patch('/students/{id}', UpdateController::class)->name('admin.students.update');
+        Route::get('/students/create', CreateController::class)->name('admin.students.create');
+        Route::post('/students', StoreController::class)->name('admin.students.store');
+        Route::delete('/students/{id}', DestroyController::class)->name('admin.students.destroy');
     });
 });
 

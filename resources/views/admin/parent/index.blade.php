@@ -18,15 +18,15 @@
                             </div>
                         @endif
 
-                            <form method="GET" action="{{ route('admin.parents.index') }}" class="mb-3">
-                                <div class="input-group">
-                                    <input type="text" name="search" class="form-control" placeholder="Search by name"
-                                           value="{{ request('search') }}">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="submit">Search</button>
-                                    </div>
+                        <form method="GET" action="{{ route('admin.parents.index') }}" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search by name"
+                                       value="{{ request('search') }}">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit">Search</button>
                                 </div>
-                            </form>
+                            </div>
+                        </form>
 
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
@@ -68,9 +68,9 @@
                             @endforeach
                             </tbody>
                         </table>
-                            @if($parents->links)
-                                <div class="mt-2">{{ $parents->links('pagination::bootstrap-5') }}</div>
-                            @endif
+                        @if($parents->total() > 15)
+                            <div class="mt-2">{{ $parents->links('pagination::bootstrap-5') }}</div>
+                        @endif
                     </div>
                 </div>
             </div>

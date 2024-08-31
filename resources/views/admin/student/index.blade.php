@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="card-header">
                         Student List
-                        {{--                        <a href="{{ route('admin.students.create') }}" class="btn btn-success btn-sm float-right">Create--}}
-                        {{--                            New Student</a>--}}
+                        <a href="{{ route('admin.students.create') }}" class="btn btn-success btn-sm float-right">Create
+                            New Student</a>
                     </div>
 
                     <div class="card-body">
@@ -48,29 +48,30 @@
                                     <td>{{ $student->parent->id }}</td>
                                     <td>{{ $student->parent->name }}</td>
                                     <td>
-                                        {{--                                        <div class="mb-2">--}}
-                                        {{--                                            <a href="{{ route('admin.parents.edit', $parent->id) }}"--}}
-                                        {{--                                               class="btn btn-warning btn-sm w-100">Edit</a>--}}
-                                        {{--                                        </div>--}}
-                                        {{--                                        <div>--}}
-                                        {{--                                            <form action="{{ route('admin.parents.destroy', $parent->id) }}"--}}
-                                        {{--                                                  method="POST"--}}
-                                        {{--                                                  style="display:inline;">--}}
-                                        {{--                                                @csrf--}}
-                                        {{--                                                @method('DELETE')--}}
-                                        {{--                                                <button type="submit" class="btn btn-danger btn-sm w-100"--}}
-                                        {{--                                                        onclick="return confirm('Are you sure?')">Delete--}}
-                                        {{--                                                </button>--}}
-                                        {{--                                            </form>--}}
-                                        {{--                                        </div>--}}
+                                        <div class="mb-2">
+                                            <a href="{{ route('admin.students.edit', $student->id) }}"
+                                               class="btn btn-warning btn-sm w-100">Edit</a>
+                                        </div>
+                                        <div>
+                                            <form action="{{ route('admin.students.destroy', $student->id) }}"
+                                                  method="POST"
+                                                  style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm w-100"
+                                                        onclick="return confirm('Are you sure?')">Delete
+                                                </button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
-                        @if($student->links)
-                            <div class="mt-2">{{ $student->links('pagination::bootstrap-5') }}</div>
-                        @endif
+                            @if($students->total() > 15)
+                                <div class="mt-2">{{ $student->links('pagination::bootstrap-5') }}</div>
+                            @endif
+
                     </div>
                 </div>
             </div>

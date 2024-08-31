@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
+
+    @yield('styles')
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
@@ -70,6 +72,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 
+@yield('scripts')
 <!-- PAGE PLUGINS -->
 {{--<!-- jQuery Mapael -->--}}
 {{--<script src="{{ asset('plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>--}}

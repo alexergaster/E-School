@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('parent_users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('login');
-            $table->string('password');
+            $table->string('name', 50);
+            $table->string('login', 50)->unique();
+            $table->string('password', 255);
             $table->double('balance')->default(0);
             $table->text('review')->nullable();
         });
