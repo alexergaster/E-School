@@ -43,6 +43,9 @@
                                     <td>{{ $group->program->id . '. ' .$group->program->name }}</td>
                                     <td>
                                         <div class="mb-2">
+                                            <a href="{{ route('admin.groups.students.index', $group->id) }}"
+                                               class="btn btn-primary btn-sm w-100">View</a>
+                                        </div><div class="mb-2">
                                             <a href="{{ route('admin.groups.edit', $group->id) }}"
                                                class="btn btn-warning btn-sm w-100">Edit</a>
                                         </div>

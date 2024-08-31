@@ -9,8 +9,16 @@ class DestroyController extends BaseController
 {
     public function __invoke($id): RedirectResponse
     {
-        ParentUser::destroy($id);
+        $parent = ParentUser::findOrFail($id);
 
-        return redirect()->route('admin.parents.index')->with('status', 'Parent deleted successfully!');
+        $students = $parent->student;
+
+        foreach ($students as $student) {
+            $student->delete();
+        }
+
+        $parent->delete();
+
+        return redirect()->route('admin.parents.index')->with('status', 'Parent and Student deleted successfully!');
     }
 }

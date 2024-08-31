@@ -72,6 +72,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin']
         Route::patch('/groups/{id}', UpdateController::class)->name('admin.groups.update');
         Route::post('/groups', StoreController::class)->name('admin.groups.store');
         Route::delete('/groups/{id}', DestroyController::class)->name('admin.groups.destroy');
+
+        Route::group(['namespace' => 'Student'], function () {
+            Route::get('/groups/{id}/students', IndexController::class)->name('admin.groups.students.index');
+            Route::get('/groups/{group_id}/students/create', CreateController::class)->name('admin.groups.students.create');
+            Route::post('/groups/{group_id}/students', StoreController::class)->name('admin.groups.students.store');
+            Route::delete('/groups/{group_id}/students/{student_id}', DestroyController::class)->name('admin.groups.students.destroy');
+        });
     });
 });
 

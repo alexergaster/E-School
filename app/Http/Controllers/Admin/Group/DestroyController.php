@@ -9,7 +9,11 @@ class DestroyController extends BaseController
 {
     public function __invoke($id): RedirectResponse
     {
-        Group::destroy($id);
+        $group = Group::findOrFail($id);
+
+        $group->students()->detach();
+
+        $group->delete();
 
         return redirect()->route('admin.groups.index')->with('status', 'Group deleted successfully!');
     }
