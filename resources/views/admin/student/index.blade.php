@@ -68,7 +68,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                            @if($students->total() > 15)
+                            @if($students->total() > 10)
                                 <div class="mt-2">{{ $student->links('pagination::bootstrap-5') }}</div>
                             @endif
 

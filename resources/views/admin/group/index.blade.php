@@ -6,9 +6,9 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Parents List
-                        <a href="{{ route('admin.parents.create') }}" class="btn btn-success btn-sm float-right">Create
-                            New Parent</a>
+                        Group List
+                        <a href="{{ route('admin.groups.create') }}" class="btn btn-success btn-sm float-right">Create
+                            New Group</a>
                     </div>
 
                     <div class="card-body">
@@ -18,42 +18,36 @@
                             </div>
                         @endif
 
-                        <form method="GET" action="{{ route('admin.parents.index') }}" class="mb-3">
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-control" placeholder="Search by name"
-                                       value="{{ request('search') }}">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">Search</button>
-                                </div>
-                            </div>
-                        </form>
-
                         <table class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Login</th>
-                                <th>Balance</th>
-                                <th>Review</th>
+                                <th>Lesson Day</th>
+                                <th>Start Time</th>
+                                <th>Audience</th>
+                                <th>Teacher</th>
+                                <th>Program</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($parents as $parent)
+                            @foreach($groups as $group)
                                 <tr>
-                                    <td>{{ $parent->id }}</td>
-                                    <td>{{ $parent->name }}</td>
-                                    <td>{{ $parent->login }}</td>
-                                    <td>{{ $parent->balance }}</td>
-                                    <td>{{ $parent->review }}</td>
+                                    <td>{{ $group->id }}</td>
+                                    <td>{{ $group->name }}</td>
+                                    <td>{{ $group->lesson_day }}</td>
+                                    <td>{{ $group->start_time }}</td>
+                                    <td>{{ $group->audience }}</td>
+                                    <td>{{ $group->teacher->id . '. ' . $group->teacher->firstname . ' ' . $group->teacher->lastname }}</td>
+                                    <td>{{ $group->program->id . '. ' .$group->program->name }}</td>
                                     <td>
                                         <div class="mb-2">
-                                            <a href="{{ route('admin.parents.edit', $parent->id) }}"
+                                            <a href="{{ route('admin.groups.edit', $group->id) }}"
                                                class="btn btn-warning btn-sm w-100">Edit</a>
                                         </div>
                                         <div>
-                                            <form action="{{ route('admin.parents.destroy', $parent->id) }}"
+                                            <form action="{{ route('admin.groups.destroy', $group->id) }}"
                                                   method="POST"
                                                   style="display:inline;">
                                                 @csrf
@@ -68,8 +62,8 @@
                             @endforeach
                             </tbody>
                         </table>
-                        @if($parents->total() > 10)
-                            <div class="mt-2">{{ $parents->links('pagination::bootstrap-5') }}</div>
+                        @if($groups->total() > 10)
+                            <div class="mt-2">{{ $groups->links('pagination::bootstrap-5') }}</div>
                         @endif
                     </div>
                 </div>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Gallery;
+use App\Models\Group;
 use App\Models\ParentUser;
 use App\Models\Program;
 use App\Models\RegistrationMC;
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Group::factory(20)->create();
 //        ParentUser::factory(30)->create();
 //        Gallery::factory(15)->create();
 //        Staff::factory(10)->create();

@@ -23,4 +23,9 @@ class Program extends Model
     {
         return $this->belongsToMany(RegistrationMC::class);
     }
+
+    public function groups(): hasMany
+    {
+        return $this->hasMany(Group::class);
+    }
 }
