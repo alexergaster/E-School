@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin'], function () {
+    Route::get('/', function (){ return view('admin.home'); })->name('admin.home');
+
     Route::group(['namespace' => 'Program'], function () {
         Route::get('/programs', IndexController::class)->name('admin.programs.index');
         Route::get('/programs/create', CreateController::class)->name('admin.programs.create');
@@ -46,6 +48,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => '/admin']
         Route::get('/mc', IndexController::class)->name('admin.mc.index');
         Route::patch('/mc/{id}', UpdateController::class)->name('admin.mc.update');
         Route::delete('/mc/{id}', DestroyController::class)->name('admin.mc.destroy');
+    });
+    Route::group(['namespace' => 'Parent'], function () {
+        Route::get('/parents', IndexController::class)->name('admin.parents.index');
+        Route::get('/parents/{id}/edit', EditController::class)->name('admin.parents.edit');
+        Route::get('/parents/create', CreateController::class)->name('admin.parents.create');
+        Route::post('/parents', StoreController::class)->name('admin.parents.store');
+        Route::patch('/parents/{id}', UpdateController::class)->name('admin.parents.update');
+        Route::delete('/parents/{id}', DestroyController::class)->name('admin.parents.destroy');
     });
 });
 

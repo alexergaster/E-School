@@ -1,0 +1,43 @@
+@extends('layouts.admin')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Edit a Parent Member</div>
+
+                    <div class="card-body">
+                        <form action="{{ route('admin.parents.store') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                       required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="login">Login</label>
+                                <input type="text" class="form-control" id="login" name="login"
+                                       required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="review">Review</label>
+                                <textarea class="form-control" id="review" name="review"
+                                          rows="3"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Create</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

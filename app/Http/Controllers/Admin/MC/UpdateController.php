@@ -4,18 +4,17 @@ namespace App\Http\Controllers\Admin\MC;
 
 use App\Http\Requests\MC\UpdateRequest;
 use App\Models\RegistrationMC;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class UpdateController extends BaseController
 {
-    public function __invoke($id, UpdateRequest $updateRequest): view
+    public function __invoke($id, UpdateRequest $updateRequest): RedirectResponse
     {
         $data = $updateRequest->validated();
 
         RegistrationMC::findOrFail($id)->update($data);
 
-        $mcs = RegistrationMC::with('program')->get();
-
-        return view('admin.mc.index', compact('mcs'))->with('status', 'Comment update successfully!');
+        return redirect()->route('admin.mc.index')->with('status', 'Comment update successfully!');
     }
 }

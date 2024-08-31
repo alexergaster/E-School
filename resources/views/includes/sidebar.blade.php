@@ -11,7 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
-                E-School Admin
+                <a href="{{ route('admin.home') }}">E-School Admin</a>
             </div>
         </div>
 
@@ -26,13 +26,20 @@
                 </li>
                 <li class="nav-item {{ request()->routeIs('admin.staff.index') ? 'menu-open': '' }}">
                     <a href="{{ route('admin.staff.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
+                        <i class="nav-icon fas fa-chalkboard-teacher"></i>
                         <p>Вчителі</p>
                     </a>
-                </li><li class="nav-item {{ request()->routeIs('admin.mc.index') ? 'menu-open': '' }}">
+                </li>
+                <li class="nav-item {{ request()->routeIs('admin.mc.index') ? 'menu-open': '' }}">
                     <a href="{{ route('admin.mc.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-book"></i>
+                        <i class="nav-icon fas fa-chalkboard"></i>
                         <p>Майстер класи</p>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->routeIs('admin.parents.index') ? 'menu-open': '' }}">
+                    <a href="{{ route('admin.parents.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Батьки</p>
                     </a>
                 </li>
 
