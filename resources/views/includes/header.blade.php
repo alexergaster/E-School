@@ -104,8 +104,14 @@
         buttonsPopupAuth.forEach((button) => {
             button.addEventListener("click", (e) => {
                 e.preventDefault();
-                document.body.classList.toggle("menu__active");
-                popup.classList.toggle("_open");
+                if(popup.classList.contains('_open')){
+                    document.body.classList.remove("menu__active");
+                    popup.classList.remove("_open");
+                }else{
+                    document.body.classList.add("menu__active");
+                    popup.classList.add("_open");
+                }
+
             });
         });
     }
