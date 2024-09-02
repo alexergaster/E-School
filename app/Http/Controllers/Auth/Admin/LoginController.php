@@ -12,12 +12,6 @@ class LoginController extends BaseController
     {
         $data = $adminRequest->validated();
 
-        if (Auth::guard('admin')->attempt($data)) {
-            return redirect()->intended('admin');
-        }
-
-        return back()->withErrors([
-            'login' => 'Невірний логін або пароль.',
-        ]);
+        return $this->service->loginAdmin($data);
     }
 }

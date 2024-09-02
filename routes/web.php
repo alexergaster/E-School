@@ -91,8 +91,6 @@ Route::prefix('admin')->group(function () {
             });
         });
     });
-
-
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -114,3 +112,13 @@ Route::group(['namespace' => 'App\Http\Controllers\MC'], function () {
     Route::get('/master_class/{id}', ShowController::class)->name('mc.show');
 });
 
+Route::namespace('App\Http\Controllers\Auth\User')->group(function (){
+    Route::post('/login', LoginController::class)->name('login');
+});
+
+Route::namespace('App\Http\Controllers\Teacher')->group(function (){
+    Route::get('/teacher/{id}', ShowController::class)->name('teacher.show');
+});
+Route::namespace('App\Http\Controllers\Parent')->group(function (){
+    Route::get('/parent/{id}', ShowController::class)->name('parent.show');
+});
