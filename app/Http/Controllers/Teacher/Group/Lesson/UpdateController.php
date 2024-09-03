@@ -12,20 +12,7 @@ class UpdateController extends BaseController
     {
         $data = $updateRequest->validated();
 
-        $attendances = $data['attendances'];
-        $keys = array_keys($attendances);
-
-        foreach ($attendances as $student_id => $status) {
-            Attendance::updateOrCreate(
-                [
-                    'id_lesson' => $lesson_id,
-                    'id_student' => $student_id
-                ],
-                [
-                    'present' => $status
-                ]
-            );
-        }
+        $this->service->update($data, $lesson_id);
 
         return redirect()->route('teacher.group.lessons.edit', ['id' => $teacher_id, 'group_id' => $group_id, 'lesson_id' => $lesson_id])->with('message', 'Дані успішно оновленні!');
     }

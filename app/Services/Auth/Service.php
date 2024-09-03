@@ -31,7 +31,7 @@ class Service
 
             $teacher = Auth::guard('teacher')->user();
 
-            return redirect()->intended(route('teacher.show', ['id' => $teacher]));
+            return redirect()->intended(route('teacher.groups.index', ['id' => $teacher]));
         }
 
         return back()->withErrors(['error' => 'Невірний email або пароль.']);

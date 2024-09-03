@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Teacher;
+namespace App\Services\Teacher\Group;
 
 
 
@@ -9,7 +9,7 @@ use App\Models\Staff;
 
 class Service
 {
-    public function show(Staff $teacher)
+    public function index(Staff $teacher)
     {
         if(request()->has('all_groups')){
            return Group::with('program', 'teacher')->get();

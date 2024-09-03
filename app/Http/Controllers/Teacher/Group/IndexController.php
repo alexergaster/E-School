@@ -11,7 +11,7 @@ class IndexController extends BaseController
     {
         $teacher = Staff::findOrFail($id);
 
-        $groups = $this->service->show($teacher);
+        $groups = $this->service->index($teacher);
 
         return view('teacher.group.index', compact('groups', 'teacher'));
     }

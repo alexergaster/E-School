@@ -121,6 +121,7 @@ Route::namespace('App\Http\Controllers\Teacher\Group')->prefix('/teacher/{id}')-
 
     Route::namespace('Lesson')->group(function () {
         Route::get('/groups/{group_id}/lessons', IndexController::class)->name('teacher.group.lessons.index');
+        Route::get('/groups/{group_id}/lessons/create', CreateController::class)->name('teacher.group.lessons.create');
         Route::get('/groups/{group_id}/lessons/{lesson_id}/edit', EditController::class)->name('teacher.group.lessons.edit');
         Route::patch('/groups/{group_id}/lessons/{lesson_id}', UpdateController::class)->name('teacher.group.lessons.update');
         Route::delete('/groups/{group_id}/lessons/{lesson_id}', DestroyController::class)->name('teacher.group.lessons.destroy');

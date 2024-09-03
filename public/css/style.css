@@ -2331,3 +2331,13 @@ footer {
         transform: none;
     }
 }
+
+.mb-5{
+    margin-bottom: 5px;
+}
+
+button.button{
+    color: white;
+    font-weight: 100;
+    padding: 7px 10px;
+}
