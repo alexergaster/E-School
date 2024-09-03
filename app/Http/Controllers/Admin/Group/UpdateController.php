@@ -16,6 +16,6 @@ class UpdateController extends BaseController
 
         $group->update($data);
 
-        return redirect()->route('admin.groups.index')->with('status', 'Group udapted successfully!');
+        return redirect()->route('admin.groups.index')->with('status', 'Group updated successfully!');
     }
 }

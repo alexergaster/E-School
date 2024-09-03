@@ -21,18 +21,17 @@ class Service
 
         $date = Carbon::today()->toDateString();
 
-        $data = ['lesson_number' => $lessonNumber, 'date'=> $date, 'id_group' => $id_group, 'id_teacher' => $id_teacher];
+        $data = ['lesson_number' => $lessonNumber, 'date' => $date, 'id_group' => $id_group, 'id_teacher' => $id_teacher];
 
         try {
             DB::beginTransaction();
 
-            Lesson::create($data);
+            $lesson = Lesson::create($data);
 
             DB::commit();
 
-            return redirect()->back(202, ['id' => $id_teacher, 'id_group' => $id_group]);
-
-        }catch (\Exception $exception){
+            return redirect()->route('teacher.group.lessons.edit', ['id' => $id_teacher, 'group_id' => $id_group, 'lesson_id' => $lesson->id]);
+        } catch (\Exception $exception) {
             DB::rollBack();
             return redirect()->back(302, ['id' => $id_teacher, 'id_group' => $id_group])->withErrors('error', $exception->getMessage());
         }
@@ -53,26 +52,5 @@ class Service
                 ]
             );
         }
-    }
-
-    public function destroy(int $teacher_id, int $group_id, int $lesson_id): RedirectResponse
-    {
-        try {
-            DB::beginTransaction();
-
-            $lesson = Lesson::findOrFail($lesson_id);
-            $lesson->attendances()->delete();
-            $lesson->delete();
-
-            DB::commit();
-
-            return redirect()->back(200, ['id' => $teacher_id, 'group_id' => $group_id])->with('message', 'Лекція успішно видалена!');
-
-        } catch (\Exception $exception) {
-            DB::rollBack();
-
-            return redirect()->back(302, [['id' => $teacher_id, 'group_id' => $group_id]])->with('message', $exception->getMessage());
-        }
-
     }
 }

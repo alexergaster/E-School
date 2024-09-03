@@ -34,16 +34,6 @@
                             <div class="">
                                 <a href="{{ route('teacher.group.lessons.edit', ['id' => $teacher_id, 'group_id' => $group->id, 'lesson_id' => $lesson->id]) }}"
                                    class="button table__button">View/Edit</a>
-                                <form action="{{ route('teacher.group.lessons.destroy', ['id' => $teacher_id, 'group_id' => $group->id, 'lesson_id' => $lesson->id]) }}"
-                                      method="POST"
-                                      style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="button table__button"
-                                            onclick="return confirm('Are you sure?')">
-                                        Delete
-                                    </button>
-                                </form>
                             </div>
                         </td>
                     </tr>

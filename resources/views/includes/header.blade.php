@@ -30,41 +30,29 @@
             </li>
         </div>
         <div class="header__cabinet">
-            <a href="/" class="header__button button">
-                <span>Увійти</span>
-                <img src="{{ asset('images/misc/arrow_right.svg') }}" alt=""/>
-            </a>
-            {{--        <?php--}}
-            {{--        if(isset($_SESSION["teacher_auth_id"])){--}}
-            {{--            ?>--}}
-            {{--        <form action="./index.php" method="POST">--}}
-            {{--            <button class="button button__exit"--}}
-            {{--                    name="user_exit" value="<?php echo $_SESSION["teacher_auth_id"] ?>">--}}
-            {{--                <img src="../img/misc/arrow_right.svg" alt="" class="exit" /> <span>Вийти</span>--}}
-            {{--            </button>--}}
-            {{--        </form>--}}
 
-            {{--            <?php--}}
-            {{--            echo '<a href="./personal_office/teacher.php?teacher_id='. $_SESSION["teacher_auth_id"] .'" class="account"><img src="./img/misc/t.png" alt=""></a>';--}}
-            {{--        }else if(isset($_COOKIE["user_auth_id"])){--}}
-            {{--            ?>--}}
-            {{--        <form action="./index.php" method="POST">--}}
-            {{--            <button class="button button__exit"--}}
-            {{--                    name="user_exit" value="<?php echo $_COOKIE["user_auth_id"] ?>">--}}
-            {{--                <img src="../img/misc/arrow_right.svg" alt="" class="exit" /> <span>Вийти</span>--}}
-            {{--            </button>--}}
-            {{--        </form>--}}
-            {{--            <?php--}}
-            {{--            echo '<a href="./personal_office/parrent.php?id_user='. $_COOKIE["user_auth_id"] .'" class="account"><img src="./img/misc/t.png" alt=""></a>';--}}
-            {{--        } else{--}}
-            {{--            echo '--}}
-            {{--                        <a href="/" class="header__button button">--}}
-            {{--                          <span>Увійти</span>--}}
-            {{--                          <img src="./img/misc/arrow_right.svg" alt=""/>--}}
-            {{--                        </a>--}}
-            {{--                  ';--}}
-            {{--        }--}}
-            {{--        ?>--}}
+            @guest('teacher')
+                @guest('parent')
+                    <a href="/" class="header__button button">
+                        <span>Увійти</span>
+                        <img src="{{ asset('images/misc/arrow_right.svg') }}" alt=""/>
+                    </a>
+                @endguest
+            @endguest
+
+            @auth('teacher')
+                <a href="" class="account"><img src="{{ asset('images/misc/t.png') }}" alt=""></a>
+                <a href="{{ route('teacher.logout') }}" class="button table__button">
+                    <span>Вийти</span>
+                </a>
+            @endauth
+
+{{--            @auth('parent')--}}
+{{--                <a href="" class="account"><img src="{{ asset('images/misc/t.png') }}" alt=""></a>--}}
+{{--                <a href="{{ route('parent.logout') }}" class="button table__button">--}}
+{{--                    <span>Вийти</span>--}}
+{{--                </a>--}}
+{{--            @endauth--}}
             <div class="button__menu"><span></span></div>
         </div>
     </div>
@@ -104,10 +92,10 @@
         buttonsPopupAuth.forEach((button) => {
             button.addEventListener("click", (e) => {
                 e.preventDefault();
-                if(popup.classList.contains('_open')){
+                if (popup.classList.contains('_open')) {
                     document.body.classList.remove("menu__active");
                     popup.classList.remove("_open");
-                }else{
+                } else {
                     document.body.classList.add("menu__active");
                     popup.classList.add("_open");
                 }

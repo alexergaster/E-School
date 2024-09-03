@@ -14,7 +14,11 @@ class EditController extends BaseController
         $lesson = Lesson::findOrFail($lesson_id);
         $group = $lesson->group;
 
-        $students = $lesson->students;
+        if($lesson->students->count() > 0){
+            $students = $lesson->students;
+        }else{
+            $students = $group->students;
+        }
 
         return view('teacher.group.lesson.edit', compact('lesson', 'students', 'group', 'teacher_id'));
     }

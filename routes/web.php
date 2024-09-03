@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\User\TeacherLogoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\StaffController;
@@ -89,6 +90,11 @@ Route::prefix('admin')->group(function () {
                 Route::post('/groups/{group_id}/students', StoreController::class)->name('admin.groups.students.store');
                 Route::delete('/groups/{group_id}/students/{student_id}', DestroyController::class)->name('admin.groups.students.destroy');
             });
+            Route::group(['namespace' => 'Journal'], function () {
+                Route::get('/groups/{id}/journal', IndexController::class)->name('admin.groups.journal.index');
+                Route::get('/groups/{id}/journal/{lesson}', ShowController::class)->name('admin.groups.journal.show');
+                Route::delete('/groups/{id}/journal/{lesson}', DestroyController::class)->name('admin.groups.journal.destroy');
+            });
         });
     });
 });
@@ -116,7 +122,9 @@ Route::namespace('App\Http\Controllers\Auth\User')->group(function () {
     Route::post('/login', LoginController::class)->name('login');
 });
 
-Route::namespace('App\Http\Controllers\Teacher\Group')->prefix('/teacher/{id}')->group(function () {
+Route::get('/teacher/logout', TeacherLogoutController::class)->name('teacher.logout');
+
+Route::middleware('teacher')->namespace('App\Http\Controllers\Teacher\Group')->prefix('/teacher/{id}')->group(function () {
     Route::get('/groups', IndexController::class)->name('teacher.groups.index');
 
     Route::namespace('Lesson')->group(function () {
@@ -124,9 +132,7 @@ Route::namespace('App\Http\Controllers\Teacher\Group')->prefix('/teacher/{id}')-
         Route::get('/groups/{group_id}/lessons/create', CreateController::class)->name('teacher.group.lessons.create');
         Route::get('/groups/{group_id}/lessons/{lesson_id}/edit', EditController::class)->name('teacher.group.lessons.edit');
         Route::patch('/groups/{group_id}/lessons/{lesson_id}', UpdateController::class)->name('teacher.group.lessons.update');
-        Route::delete('/groups/{group_id}/lessons/{lesson_id}', DestroyController::class)->name('teacher.group.lessons.destroy');
     });
-
 });
 Route::namespace('App\Http\Controllers\Parent')->group(function () {
     Route::get('/parent/{id}', ShowController::class)->name('parent.show');
