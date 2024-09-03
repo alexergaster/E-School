@@ -10,8 +10,6 @@ use App\Models\Program;
 use App\Models\RegistrationMC;
 use App\Models\Sections;
 use App\Models\Staff;
-use Database\Factories\RegistrationMCFactory;
-use Database\Factories\RegistrationMCFactory1;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,7 +19,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Group::factory(20)->create();
+
+//        Group::factory(20)->create();
 //        ParentUser::factory(30)->create();
 //        Gallery::factory(15)->create();
 //        Staff::factory(10)->create();

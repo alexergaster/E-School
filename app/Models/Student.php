@@ -24,4 +24,10 @@ class Student extends Model
     {
         return $this->belongsToMany(Group::class, 'group_student', 'student_id', 'group_id');
     }
+
+    public function lessons(): belongsToMany
+    {
+        return $this->belongsToMany(Lesson::class, 'attendances', 'id_student', 'id_lesson')
+            ->withPivot('present');
+    }
 }

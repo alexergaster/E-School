@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 class HomeController extends Controller

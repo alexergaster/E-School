@@ -112,13 +112,23 @@ Route::group(['namespace' => 'App\Http\Controllers\MC'], function () {
     Route::get('/master_class/{id}', ShowController::class)->name('mc.show');
 });
 
-Route::namespace('App\Http\Controllers\Auth\User')->group(function (){
+Route::namespace('App\Http\Controllers\Auth\User')->group(function () {
     Route::post('/login', LoginController::class)->name('login');
 });
 
-Route::namespace('App\Http\Controllers\Teacher')->group(function (){
-    Route::get('/teacher/{id}', ShowController::class)->name('teacher.show');
+Route::namespace('App\Http\Controllers\Teacher\Group')->prefix('/teacher/{id}')->group(function () {
+    Route::get('/groups', IndexController::class)->name('teacher.groups.index');
+
+    Route::namespace('Lesson')->group(function () {
+        Route::get('/groups/{group_id}/lessons', IndexController::class)->name('teacher.group.lessons.index');
+        Route::get('/groups/{group_id}/lessons/{lesson_id}/edit', EditController::class)->name('teacher.group.lessons.edit');
+        Route::patch('/groups/{group_id}/lessons/{lesson_id}', UpdateController::class)->name('teacher.group.lessons.update');
+        Route::delete('/groups/{group_id}/lessons/{lesson_id}', DestroyController::class)->name('teacher.group.lessons.destroy');
+    });
+
 });
-Route::namespace('App\Http\Controllers\Parent')->group(function (){
+Route::namespace('App\Http\Controllers\Parent')->group(function () {
     Route::get('/parent/{id}', ShowController::class)->name('parent.show');
+
+
 });

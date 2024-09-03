@@ -18,4 +18,11 @@ class Staff extends Authenticatable
     {
         return $this->hasMany(Group::class, 'teacher_id', 'id');
     }
+
+    public function lessons(): hasMany
+    {
+        return $this->hasMany(Lesson::class, 'id_teacher');
+    }
+
+
 }
