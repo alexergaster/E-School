@@ -94,7 +94,19 @@ Route::prefix('admin')->group(function () {
                 Route::get('/groups/{id}/journal', IndexController::class)->name('admin.groups.journal.index');
                 Route::get('/groups/{id}/journal/{lesson}', ShowController::class)->name('admin.groups.journal.show');
                 Route::delete('/groups/{id}/journal/{lesson}', DestroyController::class)->name('admin.groups.journal.destroy');
+
+                Route::group(['namespace' => 'Workingout'], function () {
+                    Route::get('/groups/{id}/journal/{lesson}/workingout/create', CreateController::class)->name('admin.group.journal.workingout.create');
+                    Route::post('/groups/{id}/journal/{lesson}/workingout', StoreController::class)->name('admin.group.journal.workingout.store');
+                });
             });
+        });
+        Route::group(['namespace' => 'Workingout'], function () {
+            Route::get('/workingout', IndexController::class)->name('admin.workingout.index');
+            Route::get('/workingout/create', CreateController::class)->name('admin.workingout.create');
+            Route::post('/workingout', StoreController::class)->name('admin.workingout.store');
+            Route::delete('/workingout/{id}', DestroyController::class)->name('admin.workingout.destroy');
+
         });
     });
 });

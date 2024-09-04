@@ -24,5 +24,8 @@ class Staff extends Authenticatable
         return $this->hasMany(Lesson::class, 'id_teacher');
     }
 
-
+    public function workingouts(): hasMany
+    {
+        return $this->hasMany(Workingout::class, 'id_teacher');
+    }
 }

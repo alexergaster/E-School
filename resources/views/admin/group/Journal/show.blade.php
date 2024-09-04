@@ -12,8 +12,8 @@
                         </p>
                         <a href="{{ route('admin.groups.journal.index', $id) }}" class="btn btn-secondary btn-sm float-left">Back
                             to Lessons</a>
-                        {{--                        <a href="{{ route('admin.groups.create') }}" class="btn btn-success btn-sm float-right">Create--}}
-                        {{--                            New Group</a>--}}
+                        <a href="{{ route('admin.group.journal.workingout.create', ['id' => $id, 'lesson' => $lesson->id ]) }}" class="btn btn-success btn-sm float-right">Create
+                            New Working-out</a>
                     </div>
 
                     <div class="card-body">

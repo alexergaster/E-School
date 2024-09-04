@@ -54,6 +54,12 @@
                         <p>Записи на майстер-класи</p>
                     </a>
                 </li>
+                <li class="nav-item {{ request()->routeIs('admin.workingout.index') ? 'menu-open': '' }}">
+                    <a href="{{ route('admin.workingout.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>Відпрацювання</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

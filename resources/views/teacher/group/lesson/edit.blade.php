@@ -39,7 +39,7 @@
                     @endforeach
                 </div>
                 <div class="form__message"></div>
-                <button class="button form__button">Update</button>
+                <button class="button form__button">Save</button>
             </form>
         </div>
     </div>

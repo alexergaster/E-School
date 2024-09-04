@@ -37,4 +37,8 @@ class Lesson extends Model
             ->withPivot('present');
     }
 
+    public function workingouts(): hasMany
+    {
+        return $this->hasMany(Workingout::class, 'id_lesson');
+    }
 }
