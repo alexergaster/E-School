@@ -36,9 +36,9 @@
                     @endforeach
                 </div>
 
-                {{--                <div class="teacherpage__button">--}}
-                {{--                    <a href="" class="button">Мої відпрацювання</a>--}}
-                {{--                </div>--}}
+                <div class="teacherpage__button">
+                    <a href="{{ route('teacher.workingout.index', $teacher->id) }}" class="button">Мої відпрацювання</a>
+                </div>
             </div>
         </div>
     </div>

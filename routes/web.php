@@ -136,15 +136,25 @@ Route::namespace('App\Http\Controllers\Auth\User')->group(function () {
 
 Route::get('/teacher/logout', TeacherLogoutController::class)->name('teacher.logout');
 
-Route::middleware('teacher')->namespace('App\Http\Controllers\Teacher\Group')->prefix('/teacher/{id}')->group(function () {
-    Route::get('/groups', IndexController::class)->name('teacher.groups.index');
+Route::middleware('teacher')->namespace('App\Http\Controllers\Teacher')->prefix('/teacher/{id}')->group(function () {
+    Route::namespace('Group')->group(function (){
+        Route::get('/groups', IndexController::class)->name('teacher.groups.index');
 
-    Route::namespace('Lesson')->group(function () {
-        Route::get('/groups/{group_id}/lessons', IndexController::class)->name('teacher.group.lessons.index');
-        Route::get('/groups/{group_id}/lessons/create', CreateController::class)->name('teacher.group.lessons.create');
-        Route::get('/groups/{group_id}/lessons/{lesson_id}/edit', EditController::class)->name('teacher.group.lessons.edit');
-        Route::patch('/groups/{group_id}/lessons/{lesson_id}', UpdateController::class)->name('teacher.group.lessons.update');
+        Route::namespace('Lesson')->group(function () {
+            Route::get('/groups/{group_id}/lessons', IndexController::class)->name('teacher.group.lessons.index');
+            Route::get('/groups/{group_id}/lessons/create', CreateController::class)->name('teacher.group.lessons.create');
+            Route::get('/groups/{group_id}/lessons/{lesson_id}/edit', EditController::class)->name('teacher.group.lessons.edit');
+            Route::patch('/groups/{group_id}/lessons/{lesson_id}', UpdateController::class)->name('teacher.group.lessons.update');
+        });
     });
+
+    Route::namespace('Workingout')->group(function () {
+        Route::get('/workingout', IndexController::class)->name('teacher.workingout.index');
+        Route::get('/workingout/{workingout}/edit', EditController::class)->name('teacher.workingout.edit');
+    });
+
+
+
 });
 Route::namespace('App\Http\Controllers\Parent')->group(function () {
     Route::get('/parent/{id}', ShowController::class)->name('parent.show');
