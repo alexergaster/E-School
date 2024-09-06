@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\User\ParentLogoutController;
 use App\Http\Controllers\Auth\User\TeacherLogoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PriceController;
@@ -135,9 +136,10 @@ Route::namespace('App\Http\Controllers\Auth\User')->group(function () {
 });
 
 Route::get('/teacher/logout', TeacherLogoutController::class)->name('teacher.logout');
+Route::get('/parent/logout', ParentLogoutController::class)->name('parent.logout');
 
 Route::middleware('teacher')->namespace('App\Http\Controllers\Teacher')->prefix('/teacher/{id}')->group(function () {
-    Route::namespace('Group')->group(function (){
+    Route::namespace('Group')->group(function () {
         Route::get('/groups', IndexController::class)->name('teacher.groups.index');
 
         Route::namespace('Lesson')->group(function () {
@@ -154,10 +156,14 @@ Route::middleware('teacher')->namespace('App\Http\Controllers\Teacher')->prefix(
     });
 
 
-
 });
-Route::namespace('App\Http\Controllers\Parent')->group(function () {
+Route::namespace('App\Http\Controllers\Parent')->middleware('parent')->group(function () {
     Route::get('/parent/{id}', ShowController::class)->name('parent.show');
+    Route::namespace('Review')->group(function () {
+        Route::patch('/parent/{id}/review/update', UpdateController::class)->name('parent.review.update');
+    });
 
 
 });
+
+

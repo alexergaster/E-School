@@ -10,7 +10,7 @@ class EditController
     public function __invoke($id_teacher, $id_workingout): RedirectResponse
     {
         $workingout = Workingout::findOrFail($id_workingout);
-
+    
         $workingout->update([
             'present' => $workingout->present ? 0 : 1,
         ]);

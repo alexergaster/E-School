@@ -1633,7 +1633,7 @@ thead th {
     position: relative;
 }
 
-.cours__status {
+.course__status {
     position: absolute;
     top: 0;
     left: 0;
@@ -1644,19 +1644,19 @@ thead th {
     padding: 5px;
     color: #fff;
 }
-.cours__status span {
+.course__status span {
     font-weight: bold;
     text-decoration: underline;
 }
-.cours__status.green {
+.course__status.green {
     background-color: rgb(0, 215, 0);
 }
-.cours__status.red {
+.course__status.red {
     background-color: red;
 }
 
 .course__buttons {
-    padding: 0px 20px;
+    padding: 0 20px;
 }
 .course__buttons .course__button {
     text-align: left;
@@ -1685,6 +1685,7 @@ thead th {
     border-radius: 10px;
 }
 .parrent__review button {
+    padding: 15px 10px !important;
     max-width: 200px;
     color: #fff;
 }
@@ -2084,10 +2085,10 @@ thead th {
     max-height: 250px;
 }
 
-.course__buttons {
-    display: flex;
-    justify-content: space-around;
-}
+/*.course__buttons {*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*}*/
 .course__buttons a {
     color: #000;
 }

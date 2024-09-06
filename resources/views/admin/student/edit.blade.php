@@ -8,8 +8,9 @@
                     <div class="card-header">Edit a Student Member</div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.students.store') }}" method="POST">
+                        <form action="{{ route('admin.students.update', $student->id) }}" method="POST">
                             @csrf
+                            @method('PATCH')
 
                             <div class="form-group">
                                 <label for="parent_id">Select Parent</label>
