@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
     />
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="shortcut icon" href="{{ asset('images/misc/logo.png') }}" type="image/x-icon">
     @stack('style')
@@ -19,7 +23,7 @@
 <body>
 <div class="wrapper">
 
-        @include('includes.preloader')
+    @include('includes.preloader')
 
 
     <header>
@@ -33,12 +37,26 @@
         @include('includes.footer')
     </footer>
     <div class="link__top">
-        <img src="{{ asset('images/misc/arrow-link.svg') }}" alt="" />
+        <img src="{{ asset('images/misc/arrow-link.svg') }}" alt=""/>
     </div>
 </div>
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
+    const swiper = new Swiper(".swiper", {
+        loop: true,
+        autoHeight: true,
+
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        autoplay: {
+            delay: 5000,
+        },
+    });
+
     if (document.querySelector(".link__top")) {
         const BUTTON_VISIBLE_PIXEL = 300;
 
@@ -54,8 +72,9 @@
 
         buttonToTop.addEventListener("click", () => {
             const html = document.querySelector("html");
-            html.scrollTo({ top: 0, behavior: "smooth" });
+            html.scrollTo({top: 0, behavior: "smooth"});
         });
     }
 </script>
+
 </html>

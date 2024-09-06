@@ -183,7 +183,33 @@
         </div>
     </div>
 
-    {{--    TODO: add review--}}
+    @if($parents->count())
+        <div class="main__reviews">
+            <div class="container">
+                <div class="reviews__subtitle subtitle">Вігуки</div>
+                <div class="reviews__titile title">Ваші думки про нас</div>
+                <div class="reviews__text text">
+                    Ми з любов'ю зберігаємо усе, що ви думаєте про нас, нашу школу та
+                    наші курси, щоб поділитись цим з усіма
+                </div>
+                <div class="reviews__body">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @foreach($parents as $parent)
+                                <div class="swiper-slide">
+                                    <div
+                                        class="slider__title cours__title">{{ $parent->name }}</div>
+                                    <div class="slider__text cours__text">{{ $parent->review }}</div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
     @include('includes.mc', $programs)
 @endsection
 

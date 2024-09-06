@@ -154,8 +154,6 @@ Route::middleware('teacher')->namespace('App\Http\Controllers\Teacher')->prefix(
         Route::get('/workingout', IndexController::class)->name('teacher.workingout.index');
         Route::get('/workingout/{workingout}/edit', EditController::class)->name('teacher.workingout.edit');
     });
-
-
 });
 Route::namespace('App\Http\Controllers\Parent')->middleware('parent')->group(function () {
     Route::get('/parent/{id}', ShowController::class)->name('parent.show');

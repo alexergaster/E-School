@@ -41,18 +41,19 @@
             @endguest
 
             @auth('teacher')
-                <a href="" class="account"><img src="{{ asset('images/misc/t.png') }}" alt=""></a>
+                <a href="{{ route('teacher.groups.index',  auth('teacher')->user()->id ) }}" class="account"><img src="{{ asset('images/misc/t.png') }}" alt=""></a>
                 <a href="{{ route('teacher.logout') }}" class="button table__button">
                     <span>Вийти</span>
                 </a>
             @endauth
 
-                @auth('parent')
-                    <a href="" class="account"><img src="{{ asset('images/misc/t.png') }}" alt=""></a>
-                    <a href="{{ route('parent.logout') }}" class="button table__button">
-                        <span>Вийти</span>
-                    </a>
-                @endauth
+            @auth('parent')
+                <a href="{{ route('parent.show', auth('parent')->user()->id )}}" class="account"><img
+                            src="{{ asset('images/misc/t.png') }}" alt=""></a>
+                <a href="{{ route('parent.logout') }}" class="button table__button">
+                    <span>Вийти</span>
+                </a>
+            @endauth
             <div class="button__menu"><span></span></div>
         </div>
     </div>

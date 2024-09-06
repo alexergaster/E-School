@@ -18,7 +18,15 @@ class TeacherMiddleware
     {
 
         if (Auth::guard('teacher')->check()) {
-            return $next($request);
+            $teacher = Auth::guard('teacher')->user();
+
+            $id = $request->route()->parameter('id');
+
+            if($teacher->id == $id){
+                return $next($request);
+            }
+
+            return redirect()->back();
         }
         return redirect()->route('home.index');
     }
