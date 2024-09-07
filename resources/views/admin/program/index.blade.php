@@ -36,7 +36,7 @@
                                 <tr>
                                     <td>{{ $program->id }}</td>
                                     <td>
-                                        <img src="{{ $program->image }}" alt="{{ $program->name }}"
+                                        <img src="{{ asset('storage/' . $program->image) }}" alt="{{ $program->name }}"
                                              style="max-width: 100px; height: auto; border-radius: 5px;">
                                     </td>
                                     <td>{{ $program->name }}</td>

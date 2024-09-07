@@ -3,17 +3,15 @@
 namespace App\Services\Program;
 
 use App\Models\Program;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class Service
 {
 
     public function store(mixed $data, $request): void
     {
-        $file = $request->file('image');
-        $filename = time() . '_' . $file->getClientOriginalName();
-        $file->move(public_path('images/programs'), $filename);
-        $data['image'] = $filename;
+        $file = $request->file('image')->store('images/programs', 'public');
+        $data['image'] = $file;
 
         Program::create($data);
     }
@@ -22,7 +20,7 @@ class Service
     {
         $program = Program::findOrFail($id);
 
-        File::delete(public_path('images/programs/' . $program->image));
+        Storage::delete('public/' . $program->image);
 
         $program->destroy($id);
     }
@@ -32,12 +30,11 @@ class Service
         $program = Program::findOrFail($id);
 
         if ($request->hasFile('image')) {
-            File::delete(public_path('images/programs/' . $program->image));
+            Storage::delete('public/' . $program->image);
 
-            $file = $request->file('image');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images/programs'), $filename);
-            $data['image'] = $filename;
+            $file = $request->file('image')->store('images/programs', 'public');
+
+            $data['image'] = $file;
         }
 
         $program->update($data);

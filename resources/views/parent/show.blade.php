@@ -12,7 +12,7 @@
                 </div>
                 <div class="parrent__balance">
                     <div class="balance__value">
-                        <img src="{{ asset('images/misc/purse.svg') }}" alt=""/>
+                        <img src="{{ asset('storage/images/misc/purse.svg') }}" alt=""/>
                         <p title="*Кошти з гаманця не повертаються назад на карту">
                             Баланс:
                             <span class="balance__purse">{{ $parent->balance }} ₴</span>
@@ -20,7 +20,7 @@
                     </div>
                     <div class="balance__add">
                         <a href="" class="button button__balance">
-                            Додати <img src="{{ asset('images/misc/plus.svg') }}" alt=""/>
+                            Додати <img src="{{ asset('storage/images/misc/plus.svg') }}" alt=""/>
                         </a>
                     </div>
                 </div>

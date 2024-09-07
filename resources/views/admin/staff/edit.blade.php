@@ -45,7 +45,7 @@
                                 <label for="image">Profile Image</label>
                                 <input type="file" class="form-control" id="image" name="image">
                                 @if ($teacher->image)
-                                    <img src="{{ asset($teacher->image) }}" alt="Profile Image"
+                                    <img src="{{ asset('storage/' .$teacher->image) }}" alt="Profile Image"
                                          class="img-thumbnail mt-2" style="width: 150px;">
                                 @endif
                             </div>

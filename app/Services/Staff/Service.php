@@ -4,17 +4,15 @@ namespace App\Services\Staff;
 
 use App\Models\Staff;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 
 class Service
 {
     public function store($data, $request): void
     {
-        $file = $request->file('image');
-        $filename = time() . '_' . $file->getClientOriginalName();
-        $file->move(public_path('images/staff'), $filename);
-        $data['image'] = $filename;
+        $file = $request->file('image')->store('images/staff', 'public');
+        $data['image'] = $file;
 
         $data['password'] = Hash::make($data['password']);
 
@@ -25,13 +23,11 @@ class Service
     {
         if ($request->hasFile('image')) {
             if ($staff->image !== 'default.avif') {
-                File::delete(public_path('images/staff/' . $staff->image));
+                Storage::delete('public/' . $staff->image);
             }
 
-            $file = $request->file('image');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('images/staff'), $filename);
-            $data['image'] = $filename;
+            $file = $request->file('image')->store('images/staff', 'public');
+            $data['image'] = $file;
         }
 
         if (isset($data['password'])) {
@@ -48,7 +44,7 @@ class Service
         $staff = Staff::findOrFail($id);
 
         if ($staff->image !== 'default.avif') {
-            File::delete(public_path('images/staff/' . $staff->image));
+            Storage::delete('public/' . $staff->image);
         }
 
         $staff->destroy($id);

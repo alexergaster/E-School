@@ -2,7 +2,7 @@
     <div class="header__body">
         <div class="header__logo">
             <a href="/">
-                <img src="{{ asset('images/misc/main_logo.png') }}" alt="Логотип школи"/>
+                <img src="{{ asset('storage/images/misc/main_logo.png') }}" alt="Логотип школи"/>
             </a>
         </div>
         <div class="header__nav">
@@ -35,13 +35,13 @@
                 @guest('parent')
                     <a href="/" class="header__button button">
                         <span>Увійти</span>
-                        <img src="{{ asset('images/misc/arrow_right.svg') }}" alt=""/>
+                        <img src="{{ asset('storage/images/misc/arrow_right.svg') }}" alt=""/>
                     </a>
                 @endguest
             @endguest
 
             @auth('teacher')
-                <a href="{{ route('teacher.groups.index',  auth('teacher')->user()->id ) }}" class="account"><img src="{{ asset('images/misc/t.png') }}" alt=""></a>
+                <a href="{{ route('teacher.groups.index',  auth('teacher')->user()->id ) }}" class="account"><img src="{{ asset('storage/images/misc/t.png') }}" alt=""></a>
                 <a href="{{ route('teacher.logout') }}" class="button table__button">
                     <span>Вийти</span>
                 </a>
@@ -49,7 +49,7 @@
 
             @auth('parent')
                 <a href="{{ route('parent.show', auth('parent')->user()->id )}}" class="account"><img
-                            src="{{ asset('images/misc/t.png') }}" alt=""></a>
+                            src="{{ asset('storage/images/misc/t.png') }}" alt=""></a>
                 <a href="{{ route('parent.logout') }}" class="button table__button">
                     <span>Вийти</span>
                 </a>

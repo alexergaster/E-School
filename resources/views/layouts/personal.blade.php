@@ -13,7 +13,7 @@
           rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="shortcut icon" href="{{ asset('images/misc/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('storage/images/misc/logo.png') }}" type="image/x-icon">
     @stack('style')
     <title>@yield('title', 'E-School')</title>
 </head>
@@ -31,7 +31,7 @@
     </main>
 
     <div class="link__top">
-        <img src="{{ asset('images/misc/arrow-link.svg') }}" alt="" />
+        <img src="{{ asset('storage/images/misc/arrow-link.svg') }}" alt="" />
     </div>
 </div>
 </body>

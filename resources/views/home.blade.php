@@ -6,7 +6,7 @@
     <div class="main__welcome">
         <div class="container">
             <video class="welcome__video" autoplay loop muted playsinline>
-                <source src="{{ asset('images/misc/video.mp4') }}"/>
+                <source src="{{ asset('storage/images/misc/video.mp4') }}"/>
             </video>
             <div class="welcome__body">
                 <div class="welcome__subtitle subtitle">Ласкаво просимо</div>
@@ -48,7 +48,7 @@
                 <div class="advantages__card">
                     <div class="card__front">
                         <div class="advantages__image">
-                            <img src="{{ asset('images/misc/Різноманіття-програм-1.png') }}" alt=""/>
+                            <img src="{{ asset('storage/images/misc/Різноманіття-програм-1.png') }}" alt=""/>
                         </div>
                         <div class="advantages__label">Різноманіття програм</div>
                         <div class="advantages__line"></div>
@@ -73,7 +73,7 @@
                 <div class="advantages__card">
                     <div class="card__front">
                         <div class="advantages__image">
-                            <img src="{{ asset('images/misc/Нестандартне_та_креативне_мислення-1.png') }}" alt=""/>
+                            <img src="{{ asset('storage/images/misc/Нестандартне_та_креативне_мислення-1.png') }}" alt=""/>
                         </div>
                         <div class="advantages__label">Нестандартне та креативне мислення</div>
                         <div class="advantages__line"></div>
@@ -92,7 +92,7 @@
                 <div class="advantages__card">
                     <div class="card__front">
                         <div class="advantages__image">
-                            <img src="{{ asset('images/misc/Графік-1.png') }}" alt=""/>
+                            <img src="{{ asset('storage/images/misc/Графік-1.png') }}" alt=""/>
                         </div>
                         <div class="advantages__label">Зручний графік</div>
                         <div class="advantages__line"></div>
@@ -111,7 +111,7 @@
                 <div class="advantages__card">
                     <div class="card__front">
                         <div class="advantages__image">
-                            <img src="{{ asset('images/misc/Різноманіття-програм-1.png') }}" alt=""/>
+                            <img src="{{ asset('storage/images/misc/Різноманіття-програм-1.png') }}" alt=""/>
                         </div>
                         <div class="advantages__label">Урок в укриті під час тривоги</div>
                         <div class="advantages__line"></div>
@@ -157,7 +157,7 @@
         <div class="container">
             <div class="performance__body">
                 <div class="performance__image">
-                    <img src="{{ asset('images/misc/thumb-concept.png') }}" alt=""/>
+                    <img src="{{ asset('storage/images/misc/thumb-concept.png') }}" alt=""/>
                 </div>
                 <div class="performance__info">
                     <div class="performance__subtitle subtitle">Майстер клас</div>

@@ -8,7 +8,8 @@
                     <div class="card-header">Create New Program</div>
 
                     <div class="card-body">
-                        <form action="{{ route('admin.programs.update', $program->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.programs.update', $program->id) }}" method="POST"
+                              enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
 
@@ -16,11 +17,10 @@
                                 <label for="image">Program Image</label>
                                 <input type="file" class="form-control" id="image" name="image">
                                 @if ($program->image)
-                                    <img src="{{ asset($program->image) }}" alt="Profile Image"
+                                    <img src="{{ asset('storage/' . $program->image) }}" alt="Profile Image"
                                          class="img-thumbnail mt-2" style="width: 150px;">
                                 @endif
                             </div>
-
 
                             <div class="form-group">
                                 <label for="name">Program Title</label>
