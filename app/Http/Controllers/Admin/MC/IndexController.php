@@ -16,6 +16,6 @@ class IndexController extends BaseController
             return $query->where('parent_name', 'like', '%' . $search . '%');
         })->paginate(10);
 
-        return view('Admin.mc.index', compact('mcs'));
+        return view('admin.mc.index', compact('mcs'));
     }
 }

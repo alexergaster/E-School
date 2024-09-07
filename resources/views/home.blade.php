@@ -158,7 +158,6 @@
             <div class="performance__body">
                 <div class="performance__image">
                     <img src="{{ asset('storage/images/misc/thumb-concept.png') }}" alt=""/>
-                    <img src="{{ asset('storage/images/misc/thumb-concept.png') }}" alt=""/>
                 </div>
                 <div class="performance__info">
                     <div class="performance__subtitle subtitle">Майстер клас</div>

@@ -17,7 +17,7 @@
             <div class="course__title title">
                 {{ $program->name }}
             </div>
-            <div class="course__text text">
+            <div class="courses__text text">
                 @if($sections->count())
                     @foreach($sections as $section)
                         @if($section->name === 'heading')
@@ -46,4 +46,5 @@
     </div>
 
     @include('includes.questions')
+    @include('includes.mc', $programs)
 @endsection

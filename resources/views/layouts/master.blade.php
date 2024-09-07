@@ -14,7 +14,7 @@
 
     <meta property="og:title" content="@yield('og_title', 'Курси для дітей у Сумах, від E-School')">
     <meta property="og:description" content="@yield('og_description', 'Курси для дітей від 7 років у Сумах: веб-дизайн, програмування на Python і JavaScript, роботехніка, розробка електронних пристроїв.')">
-    <meta property="og:image" content="@yield('og_image', asset('storage/images/misc/main_logo.png'))">
+    <meta property="og:image" content="@yield('og_image', asset('storage/images/misc/logo.png'))">
     <meta property="og:url" content="@yield('og_url', url()->current())">
 
     <link rel="preconnect" href="https://fonts.googleapis.com"/>

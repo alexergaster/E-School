@@ -1480,18 +1480,18 @@ thead th {
     object-fit: cover;
 }
 
-.course__text {
+.courses__text {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.course__text a,
-.course__text span {
+.courses__text a,
+.courses__text span {
     color: #ff7b00;
     font-weight: bold;
 }
-.course__text .lists {
+.courses__text .lists {
     margin-bottom: 40px;
 }
 

@@ -36,4 +36,5 @@
     </div>
 
     @include('includes.questions')
+    @include('includes.mc', $programs)
 @endsection
