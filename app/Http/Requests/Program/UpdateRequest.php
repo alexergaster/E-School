@@ -30,6 +30,8 @@ class UpdateRequest extends FormRequest
             'description' => 'required|string',
             'price' => 'required|numeric',
             'recommended_age' => 'required|numeric',
+            'seo_description' => 'nullable|string',
+            'seo_keywords' => 'nullable|string',
         ];
     }
     protected function failedValidation(Validator $validator)

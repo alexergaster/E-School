@@ -1,6 +1,6 @@
 <div class="curses__curs">
     <div class="course__image">
-        <a href="{{ route('programs.show', $program) }}"><img src="{{ asset($program->image) }}" alt="Зображення курсу"/></a>
+        <a href="{{ route('programs.show', $program) }}"><img src="{{ asset('storage/' . $program->image) }}" alt="Зображення курсу"/></a>
     </div>
     <div class="course__title">
         {{ $program->name }}

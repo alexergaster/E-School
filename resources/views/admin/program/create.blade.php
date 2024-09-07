@@ -44,6 +44,16 @@
                                 <label for="recommended_age">Recommended Age</label>
                                 <input type="number" class="form-control" id="recommended_age" name="recommended_age">
                             </div>
+                            <div class="form-group">
+                                <label for="seo_description">SEO Description</label>
+                                <textarea class="form-control" id="seo_description" name="seo_description"
+                                          rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="seo_keywords">SEO Keywords</label>
+                                <textarea class="form-control" id="seo_keywords" name="seo_keywords"
+                                          rows="2"></textarea>
+                            </div>
 
                             <button type="submit" class="btn btn-success">Create</button>
                         </form>

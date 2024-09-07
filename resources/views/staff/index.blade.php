@@ -21,7 +21,7 @@
                 <div class="head__staff">
                     <div class="head__item staff__item">
                         <div class="staff__image">
-                            <img src="../img/staff/h1_1.jpg"/>
+                            <img src="{{ asset('storage/app/public/images/staff/h1_1.jpg') }}" alt=""/>
                         </div>
                         <div class="staff__desc">
                             <div class="staff__title">Леонтьєв Петро Володимирович</div>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="head__item staff__item">
                         <div class="staff__image">
-                            <img src="../img/staff/s3.jpg"/>
+                            <img src="{{ asset('storage/app/public/images/staff/s3.jpg') }}" alt=""/>
                         </div>
                         <div class="staff__desc">
                             <div class="staff__title">Левковський Олександр Вікторович</div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="head__item staff__item">
                         <div class="staff__image">
-                            <img src="../img/staff/h3.jpg"/>
+                            <img src="{{ asset('storage/app/public/images/staff/h3.jpg') }}" alt=""/>
                         </div>
                         <div class="staff__desc">
                             <div class="staff__title">Олексієнко Галина Андріївна</div>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="head__item staff__item">
                         <div class="staff__image">
-                            <img src="../img/staff/h4.jpg"/>
+                            <img src="{{ asset('storage/app/public/images/staff/h4.jpg') }}" alt=""/>
                         </div>
                         <div class="staff__desc">
                             <div class="staff__title">Леонтьєва Олена Володимирівна</div>
@@ -85,7 +85,7 @@
                         @foreach($staffs as $teacher)
                             <div class="staff__item">
                                 <div class="staff__image">
-                                    <img src="{{ $teacher->image }}" alt=""/>
+                                    <img src="{{ asset('storage/' . $teacher->image)}}" alt=""/>
                                 </div>
                                 <div class="staff__desc">
                                     <div

@@ -52,6 +52,17 @@
                                        value="{{ old('name', $program->recommended_age) }}">
                             </div>
 
+                            <div class="form-group">
+                                <label for="seo_description">SEO Description</label>
+                                <textarea class="form-control" id="seo_description" name="seo_description"
+                                          rows="3">{{ old('seo_description', $program->seo_description) }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="seo_keywords">SEO Keywords</label>
+                                <textarea class="form-control" id="seo_keywords" name="seo_keywords"
+                                          rows="2">{{ old('seo_keywords', $program->seo_keywords) }}</textarea>
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                     </div>

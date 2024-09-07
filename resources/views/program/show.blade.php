@@ -12,7 +12,7 @@
     <div class="main__course">
         <div class="container">
             <div class="course__image main__image">
-                <img src="{{ asset($program->image) }}" alt="" />
+                <img src="{{ asset('storage/' .$program->image) }}" alt="" />
             </div>
             <div class="course__title title">
                 {{ $program->name }}
