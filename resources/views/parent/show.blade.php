@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('robots', 'noindex, nofollow')
+
 @section('content')
 
     <div class="main__parrent">
