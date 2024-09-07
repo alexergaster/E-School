@@ -5,11 +5,13 @@
 ## Інсталяція
 
 ### Отримати копію проєкту:
+
 ```bash
     git clone https://github.com/alexergaster/E-School.git
 ```
 
 ### Встановити composer:
+
 ```bash
     composer install
 ```
@@ -27,6 +29,7 @@ DB_DATABASE=E-School
 `
 
 ### Створити базу даних MySQL:
+
 ```bash
     mysql -u [username] -p -e "CREATE DATABASE E-School;"
 ```
@@ -37,3 +40,8 @@ DB_DATABASE=E-School
 php artisan migration
 `
 
+### Створити символічні посилання
+
+`
+php artisan storage:link
+`
