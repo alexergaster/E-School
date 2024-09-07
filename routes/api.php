@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactSendController;
 use App\Http\Controllers\MC\StoreController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/master_class', StoreController::class)->name('mc.store');
 
+Route::post('/contact', ContactSendController::class)->name('contact.send');
 

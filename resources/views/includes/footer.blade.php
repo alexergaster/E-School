@@ -22,9 +22,9 @@
                     </div>
                     <input
                         type="text"
-                        placeholder="Електрона адреса або номер телефону*"
+                        placeholder="Введіть номер телефону*"
                         required
-                        name="phone_or_email"
+                        name="phone"
                     />
                     <textarea
                         name="question"
@@ -77,3 +77,49 @@
         </div>
     </div>
 </div>
+
+<script>
+    if (document.querySelector(".footer__form")) {
+        const form = document.querySelector('.footer__form');
+        const formMessage = document.querySelector(".footer__form .form__message");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            form.classList.add("_active");
+
+            const phone = form.querySelector("input[name='phone']").value.trim();
+            const question = form.querySelector("textarea[name='question']").value.trim();
+
+            const data = {
+                phone: phone,
+                text: question,
+            }
+
+            fetch("http://127.0.0.1:8000/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    form.classList.remove("_active");
+                    formMessage.classList.add("_active");
+                    formMessage.textContent = data.message;
+                })
+                .catch((error) => {
+                    form.classList.remove("_active");
+                    formMessage.classList.add("_active");
+                    formMessage.textContent = 'Введіть коректні дані';
+                    console.error("Error:", error);
+                });
+        });
+    }
+</script>
