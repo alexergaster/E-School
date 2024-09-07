@@ -1,5 +1,13 @@
 @extends('layouts.master')
 
+@section('title', "E-School - $program->name")
+@section('description', $program->seo_description)
+@section('keywords', $program->seo_keywords)
+
+@section('og_title', 'Курси для дітей у Сумах, від E-School - ')
+@section('og_description', $program->seo_description)
+
+
 @section('content')
     <div class="main__course">
         <div class="container">

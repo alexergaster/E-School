@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title', 'E-School - Головна сторінка')
+
 @section('content')
     <div class="main__welcome">
         <div class="container">
