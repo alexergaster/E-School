@@ -12,7 +12,7 @@
     <div class="main__course">
         <div class="container">
             <div class="course__image main__image">
-                <img src="{{ asset('storage/' .$program->image) }}" alt="" />
+                <img src="{{ asset('storage/' .$program->image) }}" alt=""/>
             </div>
             <div class="course__title title">
                 {{ $program->name }}
@@ -27,6 +27,14 @@
                         @endif
                     @endforeach
                 @endif
+                @if($features->count())
+                    <ul class="lists">
+                        Особливості курсу:
+                        @foreach($features as $feature)
+                            <li>{{ $feature->content }}</li>
+                        @endforeach
+                    </ul>
+                @endif
                 <p class="text__desc">
                     Курс розрахований для дітей віком від <span>{{ $program->recommended_age }} років</span>, триває
                     навчальний рік, складається з {{ $program->number_lesson }} занять тривалістю по 2 години.
@@ -39,9 +47,7 @@
                 </p>
                 <a href="/" class="button master_class bouncy button__course">Записатись на майстер клас</a>
             </div>
-            <div class="course__title title">
-                Опису даного курсу ще немає :(
-            </div>
+
         </div>
     </div>
 

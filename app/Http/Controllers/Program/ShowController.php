@@ -11,7 +11,8 @@ class ShowController extends BaseController
     {
         $programs = Program::all();
         $sections = $program->sections;
+        $features = $program->features;
 
-        return view('program.show', compact(['program', 'sections', 'programs']));
+        return view('program.show', compact('program', 'sections', 'programs', 'features'));
     }
 }

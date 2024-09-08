@@ -28,4 +28,9 @@ class Program extends Model
     {
         return $this->hasMany(Group::class);
     }
+
+    public function features(): hasMany
+    {
+        return $this->hasMany(FeatureProgram::class);
+    }
 }
