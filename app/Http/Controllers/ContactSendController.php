@@ -14,7 +14,7 @@ class ContactSendController extends Controller
         $data = $request->validated();
 
         try {
-            Mail::to('recipient@example.com')->send(new ContactFormMail($data));
+            Mail::to('ewoodplay@gmail.com')->send(new ContactFormMail($data));
 
             return response()->json([
                 'status' => 'success',

@@ -33,7 +33,7 @@ class Service
 
             $data['programs'] = $newPrograms;
 
-            Mail::to('recipient@example.com')->send(new MCMail($data));
+            Mail::to('ewoodplay@gmail.com')->send(new MCMail($data));
 
             DB::commit();
         } catch (\Exception $exception) {
