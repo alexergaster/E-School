@@ -22,7 +22,7 @@ class GalleryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5120',
+            'image' => 'required|image|mimes:jpeg,png,jpg,webp|max:5120',
         ];
     }
 }
