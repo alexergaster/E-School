@@ -28,12 +28,14 @@
                     @endforeach
                 @endif
                 @if($features->count())
-                    <ul class="lists">
-                        Особливості курсу:
-                        @foreach($features as $feature)
-                            <li>{{ $feature->content }}</li>
-                        @endforeach
-                    </ul>
+                        <ul class="lists">
+                            Особливості курсу:
+                            @foreach($features as $feature)
+                                <li>{{ $feature->content }}</li>
+                            @endforeach
+                        </ul>
+
+
                 @endif
                 <p class="text__desc">
                     Курс розрахований для дітей віком від <span>{{ $program->recommended_age }} років</span>, триває

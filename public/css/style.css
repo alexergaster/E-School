@@ -1213,6 +1213,7 @@ thead th {
 }
 
 .lists {
+    width: 95%;
     margin-bottom: 15px;
 }
 .lists li {
