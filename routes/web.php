@@ -47,6 +47,12 @@ Route::prefix('admin')->group(function () {
                 Route::patch('/programs/{program}/sections/{section}', UpdateController::class)->name('admin.sections.update');
                 Route::delete('/programs/{program}/sections/{section}', DestroyController::class)->name('admin.sections.destroy');
             });
+            Route::group(['namespace' => 'Feature'], function () {
+                Route::get('/programs/{id}/features', IndexController::class)->name('admin.features.index');
+                Route::get('/programs/{id}/features/create', CreateController::class)->name('admin.features.create');
+                Route::post('/programs/{id}/features', StoreController::class)->name('admin.features.store');
+                Route::delete('/programs/{id}/features/{feature}', DestroyController::class)->name('admin.features.destroy');
+            });
         });
         Route::group(['namespace' => 'Staff'], function () {
             Route::get('/staff', IndexController::class)->name('admin.staff.index');

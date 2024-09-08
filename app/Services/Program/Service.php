@@ -20,6 +20,18 @@ class Service
     {
         $program = Program::findOrFail($id);
 
+        $sections = $program->sections;
+
+        foreach ($sections as $section) {
+            $section->delete();
+        }
+
+        $features = $program->features;
+
+        foreach ($features as $feature) {
+            $feature->delete();
+        }
+
         Storage::delete('public/' . $program->image);
 
         $program->destroy($id);

@@ -47,7 +47,11 @@
                                     <td>
                                         <div class="mb-2">
                                             <a href="{{ route('admin.sections.index', $program->id) }}"
-                                               class="btn btn-primary btn-sm w-100">View</a>
+                                               class="btn btn-primary btn-sm w-100">Sections</a>
+                                        </div>
+                                        <div class="mb-2">
+                                            <a href="{{ route('admin.features.index', $program->id) }}"
+                                               class="btn btn-primary btn-sm w-100">Features</a>
                                         </div>
 
                                         <div class="mb-2">
