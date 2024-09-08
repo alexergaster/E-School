@@ -109,6 +109,13 @@ Route::prefix('admin')->group(function () {
             Route::delete('/workingout/{id}', DestroyController::class)->name('admin.workingout.destroy');
 
         });
+        Route::group(['namespace' => 'Gallery'], function () {
+            Route::get('/gallery', IndexController::class)->name('admin.gallery.index');
+            Route::get('/gallery/create', CreateController::class)->name('admin.gallery.create');
+            Route::post('/gallery', StoreController::class)->name('admin.gallery.store');
+            Route::delete('/gallery/{id}', DestroyController::class)->name('admin.gallery.destroy');
+
+        });
     });
 });
 
@@ -124,11 +131,6 @@ Route::get('/about', function () {
 })->name('about.index');
 Route::group(['namespace' => 'App\Http\Controllers\Gallery'], function () {
     Route::get('/gallery', IndexController::class)->name('gallery.index');
-});
-
-Route::group(['namespace' => 'App\Http\Controllers\MC'], function () {
-//    Route::get('/master_class', IndexController::class)->name('mc.index');
-//    Route::get('/master_class/{id}', ShowController::class)->name('mc.show');
 });
 
 Route::namespace('App\Http\Controllers\Auth\User')->group(function () {
